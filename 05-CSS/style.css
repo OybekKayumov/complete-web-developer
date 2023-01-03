@@ -1,0 +1,13 @@
+/* cascading style sheets */
+/* cascading means it always takes the selector - it takes the last input that it receives for a specific selector */
+/* selector {
+  property: value
+} */
+
+h2 {
+  color: red;
+}
+
+p {
+  color: orange;
+}
