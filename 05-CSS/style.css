@@ -13,7 +13,11 @@ body {
   background-size: cover;
 }
 
-h2, p {
+h2 {
+  color: red;
+}
+
+p {
   color: #aa4139;
   text-align: center;
   border: 2px solid black;
@@ -21,7 +25,18 @@ h2, p {
 }
 
 p {
-  color: orange;
+  color: black;
+  /* text-decoration: underline; */
+  /* text-transform: uppercase; */
+  line-height: 50px;
+  font-style: italic;
+  font-weight: bold;
+  /* font-size: 80%; */
+  font-family: 'Poiret One', cursive;
+}
+
+img {
+  float: left;
 }
 
 li {
@@ -42,3 +57,13 @@ li {
 #div1 {
   background-color: rgba(0, 0, 255, 0.2);
 }
+
+/* h2 p */
+/* h2 > p */
+/* h2 + p : select p after h2 */
+/* !important (not recommended)*/
+
+/* what selectors win out in the cascade depends on: */
+/* -specificity */
+/* -importance */
+/* -source order */
