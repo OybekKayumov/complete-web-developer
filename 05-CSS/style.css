@@ -5,11 +5,11 @@
 } */
 
 * {
-  text-align: right;
+  /* text-align: right; */
 }
 
 body {
-  background-image: url(painted-leaves.jpg); 
+  background-image: url(the-background.png); 
   background-size: cover;
 }
 
@@ -72,4 +72,24 @@ li {
 footer {
   clear: both;
   text-align: center;
+}
+
+.boxmodel {
+  border: 3px solid red;
+  display: inline-block;
+  /* padding: 20px; */
+  /* padding: 5px 20px 5px 20px; */
+  padding: 5px 20px;
+  margin: 0px 20px;
+  width: 33px;
+  height: 55px;
+}
+
+p {
+  font-size: 20px;
+}
+
+span {
+  /* font-size: 2em; */
+  font-size: 2rem;
 }
