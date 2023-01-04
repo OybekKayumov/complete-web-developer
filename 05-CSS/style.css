@@ -3,6 +3,11 @@
 /* selector {
   property: value
 } */
+
+* {
+  text-align: right;
+}
+
 body {
   background-image: url(painted-leaves.jpg); 
   background-size: cover;
@@ -26,3 +31,14 @@ li {
   display: inline-block;
 }
 
+.webtext {
+  border: 3px dashed green;
+}
+
+.active {
+  color: red;
+}
+
+#div1 {
+  background-color: rgba(0, 0, 255, 0.2);
+}
