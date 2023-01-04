@@ -3,11 +3,26 @@
 /* selector {
   property: value
 } */
+body {
+  background-image: url(painted-leaves.jpg); 
+  background-size: cover;
+}
 
-h2 {
-  color: red;
+h2, p {
+  color: #aa4139;
+  text-align: center;
+  border: 2px solid black;
+  cursor: pointer;
 }
 
 p {
   color: orange;
 }
+
+li {
+  list-style: none;
+  /* display: inline; */
+  /* display: block; */
+  display: inline-block;
+}
+
