@@ -10,7 +10,7 @@ html {
 
 h1 {
   font-size: 3rem;
-  color: #e2dbdb;
+  color: #e2dbdb;  
 }
 
 hr {
@@ -19,4 +19,25 @@ hr {
   border: 3px solid #F05F44;
   max-width: 65px;
   opacity: 1;  
+}
+
+.btn {
+  font-weight: 700;
+  border-radius: 300px;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background-color: #F05F44;
+  border: #F05F44;
+}
+
+.btn-primary:hover {
+  background-color: #ee4b08;
+  border: #ee4b08;
+  border-width: 4px;
+}
+
+.btn-xl {
+  padding: 1rem 2rem;
 }
