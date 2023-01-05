@@ -3,7 +3,11 @@
     gap: 20px;
     /* grid-template-columns: 300px 300px 300px; */
     /* grid-template-columns: 25% 25% 25% 25%; */
-    grid-template-columns: 1fr 1fr 2fr;
+    /* grid-template-columns: 1fr 1fr 2fr; */
+    /* grid-template-columns: repeat(2, 1fr) 2fr; */
+    grid-template-columns: auto 1fr 2fr;
+
+    grid-template-rows: 1fr 2fr;
 }
 
 .zone {
