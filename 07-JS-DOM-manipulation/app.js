@@ -42,6 +42,8 @@ const li = document.createElement('li');
 ul.append(li);
 
 // modifying the text
+li.innerText = 'X-men'
+
 const firstListItem = document.querySelector('.list-items');
 
 console.log(firstListItem.innerText);
@@ -54,3 +56,20 @@ console.log(firstListItem.textContent);
 console.log(firstListItem.innerHTML);
 {/* <span>Neo</span>
 The Matrix */}
+
+//todo: modifying attributes & classes
+li.setAttribute('id', 'main-heading');
+li.removeAttribute('id');
+
+const title = document.querySelector('#main-heading');
+console.log(title.getAttribute('id')); 
+// main-heading
+
+//
+li.classList.add('list-items');
+li.classList.remove('list-items');
+
+console.log(li.classList.contains('list-items'));  // false
+
+//todo: remove elements
+li.remove();
