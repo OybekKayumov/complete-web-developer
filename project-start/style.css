@@ -55,8 +55,12 @@ a {
     align-items: center;
     justify-content: center;
 
-    height: 500px;
+    /* height: 500px; */
+    height: 50vh;
 }
+
+/* GRID */
+
 
 /*https://paulund.co.uk/how-to-create-shiny-css-buttons*/
 /***********************************************************************
