@@ -1,3 +1,7 @@
+body {
+    margin: auto 0;
+}
+
 .zone {
     /* padding:30px 50px; */
     /* margin:40px 60px; */
@@ -16,12 +20,24 @@
     -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
     box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
 }
+
 /* NAV */
 .main-nav {
     display: flex;
     list-style: none;
     font-size: 0.7em;
     margin: 0;    
+}
+
+@media only screen and (max-width: 600px) {
+    .main-nav {
+        font-size: 0.5em;
+        padding: 0;
+    }
+}
+
+.push {
+    margin-left: auto;
 }
 
 li {
