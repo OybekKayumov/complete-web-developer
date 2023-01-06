@@ -60,7 +60,11 @@ a {
 }
 
 /* GRID */
-
+.grid-wrapper {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
 
 /*https://paulund.co.uk/how-to-create-shiny-css-buttons*/
 /***********************************************************************
