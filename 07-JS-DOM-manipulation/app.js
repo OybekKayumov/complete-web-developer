@@ -73,3 +73,40 @@ console.log(li.classList.contains('list-items'));  // false
 
 //todo: remove elements
 li.remove();
+
+// 
+//TODO: Traverse the DOM
+
+//todo: parent node traversal
+// let ul1 = document.querySelector('ul')
+// console.log(ul1);
+// console.log(ul1.parentNode.parentNode);   // container--body
+// console.log(ul1.parentElement.parentElement);
+
+// const html = document.documentElement;
+// console.log(html);
+// console.log(html.parentNode);     // #document
+// console.log(html.parentElement);  // null
+
+//todo: child node traversal
+// let ul1 = document.querySelector('ul')
+// console.log(ul.childNodes);
+// console.log(ul.firstChild);
+// console.log(ul.lastChild);
+
+// ul.childNodes[1].style.backgroundColor = 'blue';
+
+// console.log(ul1.children);
+// console.log(ul1.firstElementChild);
+// console.log(ul1.lastElementChild);
+
+//todo: sibling node traversal
+// let ul1 = document.querySelector('ul')
+// const div = document.querySelector('div')
+
+// console.log(div.childNodes);
+
+// console.log(ul1.previousSibling);
+// console.log(ul1.nextSibling);
+// console.log(ul1.previousElementSibling);
+// console.log(ul1.nextElementSibling);
