@@ -74,7 +74,6 @@ console.log(li.classList.contains('list-items'));  // false
 //todo: remove elements
 li.remove();
 
-// 
 //TODO: Traverse the DOM
 
 //todo: parent node traversal
@@ -110,3 +109,64 @@ li.remove();
 // console.log(ul1.nextSibling);
 // console.log(ul1.previousElementSibling);
 // console.log(ul1.nextElementSibling);
+
+//TODO: Event listeners
+const button2 = document.querySelector('.btn-2');
+
+function alertBtn() {
+  alert('I also love JS')
+}
+
+button2.addEventListener('click', alertBtn);
+
+//todo: mouseover
+const newBgColor = document.querySelector('.box-3')
+
+newBgColor.addEventListener('mouseover', changeBg);
+
+function changeBg() {
+  newBgColor.style.backgroundColor = 'orange';
+}
+
+//todo: reveal event
+const revealBtn = document.querySelector('.reveal-btn');
+
+const hiddenContent = document.querySelector('.hidden-content');
+
+function revealContent() {
+  if (hiddenContent.classList.contains('reveal-btn')) {
+    hiddenContent.classList.remove('reveal-btn');
+  } else {
+    hiddenContent.classList.add('reveal-btn')
+  }
+}
+
+revealBtn.addEventListener('click', revealContent)
+
+//TODO: Event Propagation
+// 3 phases
+//1 event capturing
+//2 target
+//3 event bubbling
+
+window.addEventListener('click', (e) => {  
+  console.log('Window');
+}, false)
+
+document.addEventListener('click', (e) => {
+  console.log('Document');
+}, false)
+
+document.querySelector('.div2').addEventListener('click', (e) => {
+  e.stopPropagation();
+  console.log('DIV 2');
+}, false)
+
+document.querySelector('.div1').addEventListener('click', (e) => {  
+  console.log('DIV 1');
+}, false)
+
+document.querySelector('.buttonProp').addEventListener('click', (e) => {
+  console.log(e.target);
+  console.log(e.target.innerText = 'clicked!');
+}, false)
