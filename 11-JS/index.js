@@ -363,3 +363,37 @@ console.log(nullObj);   // null, means there is nothing in this object
 emptyObj.name = 'Joe';
 console.log(emptyObj.name);  // Joe
 
+// 
+let database = [
+  {
+    username: 'andrei',
+    password: 'secret'
+  }
+];
+
+const newsFeed = [
+  {
+    username: 'Bobby',
+    timeline: "So tired from all that learning"
+  },
+  {
+    username: 'Sally',
+    timeline: "Js is so cool!"
+  }
+]
+
+const userNamePrompt = prompt("What is your username? ");
+const passwordPrompt = prompt("What is your password? ");
+
+function signIn(user, pwd) {
+  if (user === database[0].username &&
+      pwd === database[0].password
+  ) {
+    console.log(newsFeed);
+  } else {
+    console.log('Sorry, wrong username or password');
+  }
+}
+
+signIn(userNamePrompt, passwordPrompt);
+
