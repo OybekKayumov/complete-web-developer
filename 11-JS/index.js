@@ -95,12 +95,44 @@ var firstName = 'John';
 
 
 // calculator
-let first = prompt("enter first number: ");
-let second = prompt("enter second number: ");
-let sum = Number(first) + Number(second);
-console.log("the sum is ", sum);
+// let first = prompt("enter first number: ");
+// let second = prompt("enter second number: ");
+// let sum = Number(first) + Number(second);
+// console.log("the sum is ", sum);
 
 // let pwd;
 // undefined
 // pwd
 // undefined
+
+//TODO: JS CONDITIONALS
+let name = 'Susan';
+if (name === "Billy") {
+  console.log('Hi, Billy');
+} else if (name === 'John') {
+  console.log('Hi, John');
+} else {
+  console.log(`Hello, ${name}`);
+}
+// Hello, Susan 
+
+//  ||, &&
+name = 'John'
+if (name === 'Billy' || name === 'John') {
+  console.log('Hi Billy or John');
+}
+// Hi Billy or John
+
+let fName = 'Billy';
+let lName = 'John';
+if (fName === 'Billy' && lName === 'John') {
+  console.log('Hi Billy and John');
+}
+// Hi Billy and John
+
+// !
+if (!(name === "Bob")) {
+  console.log('Hi, Bob');
+}
+// Hi, Bob
+
