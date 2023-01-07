@@ -397,3 +397,36 @@ function signIn(user, pwd) {
 
 signIn(userNamePrompt, passwordPrompt);
 
+//TODO: JS terminology
+// function declaration
+function name(params) {
+  
+}
+
+// function expression
+const newFn = function name(params) {
+  
+};
+
+//! expression is smth that produces a value
+1+3;
+let a = 2;
+return true;
+
+// calling or invoking
+alert();
+newFn(param1, param2);
+console.log();
+
+// assign a variable
+let b = true;
+
+// function vs method
+const obj = {
+  thisIsMethod: function () {
+    
+  }
+}
+// access to method
+obj.thisIsMethod();
+
