@@ -151,6 +151,7 @@ if (!(name === "Bob")) {
 // "Powering On. Enjoy the ride!"
 
 // car
+/*
 let age = prompt("Enter your age: ");
 if (+age < 18 ) {
   console.log("Sorry, you are too young to drive this car. Powering off");
@@ -159,4 +160,44 @@ if (+age < 18 ) {
 } else {
   console.log("Congratulations on your first year of driving. Enjoy the ride!");
 }
+*/
 
+// TODO: functions
+// arguments are what's given to functions
+
+// function declaration
+function sayHello() {
+  console.log('Hello!');
+}
+sayHello();
+
+// function expression
+const sayBye = function () {
+  console.log('Bye!');
+}
+sayBye();
+
+function sing() {
+  console.log('Ahh');
+  console.log('Tee');
+}
+sing();
+
+function song(sing) {
+  console.log(sing);  
+}
+song('laa dee daa');
+
+//
+function multiply(a, b) {
+  //  a * b; // without return - undefined
+  return a * b;
+}
+
+console.log(multiply(5, 10));
+
+// functions can be a variables
+
+// todo: parameters and arguments
+multiply(5,6);  // 5 and 6 are arguments
+// parameters are what a and b is
