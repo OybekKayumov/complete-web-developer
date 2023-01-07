@@ -303,4 +303,63 @@ console.log(user.name, user.age, user.hobby, user.isMarried);
 
 user.favoriteFood = 'spinach';
 user.isMarried = true;
+
+user.spells = ['abra', 'shazam', 'boo'];
 console.log(user);
+// {
+//   name: 'John',
+//   age: 34,
+//   hobby: 'soccer',
+//   isMarried: true,
+//   favoriteFood: 'spinach',
+//   spells: [ 'abra', 'shazam', 'boo' ]
+// }
+
+// 
+const userList = [
+  {
+    username: 'andy',
+    password: 'secret'
+  },
+  {
+    username: 'jess',
+    password: '123456'
+  },  
+]
+
+console.log(userList);
+// [
+//   { username: 'andy', password: 'secret' },
+//   { username: 'jess', password: '123456' }
+// ]
+
+console.log( user.spells[1]);       // shazam
+console.log(userList[0].password ); // secret
+
+//! function inside an object is a "method"
+user.shout = function () { 
+  console.log('Hey!');
+}
+console.log(user);            // shout: [Function (anonymous)]
+console.log(user.shout());    // Hey!
+
+let user2 = {};
+console.log(user2);   // {}
+
+let list4 = [];
+
+//todo: null
+var emptyObj = {};
+var nullObj = null;
+
+console.log(emptyObj);  // {}
+console.log(nullObj);   // null, means there is nothing in this object
+
+//* error with null
+// nullObj.name = 'Joe'; 
+// ! TypeError: Cannot set properties of null (setting 'name')
+
+// but
+emptyObj.name = 'Joe';
+console.log(emptyObj.name);  // Joe
+
