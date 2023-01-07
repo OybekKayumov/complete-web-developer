@@ -287,3 +287,20 @@ console.log(list3);
 list3.sort();
 console.log(list3);
 // [ 'bear', 'bee', 'cat', 'deer', 'elephant' ]
+
+// TODO: Objects
+const user = {
+  name: 'John',
+  age: 34,
+  hobby: 'soccer',
+  isMarried: false,
+}
+
+console.log(user);
+// { name: 'John', age: 34, hobby: 'soccer', isMarried: false }      
+console.log(user.name, user.age, user.hobby, user.isMarried);
+// John 34 soccer false
+
+user.favoriteFood = 'spinach';
+user.isMarried = true;
+console.log(user);
