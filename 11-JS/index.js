@@ -450,19 +450,98 @@ const todosLength = todos.length;
 // }
 
 
-// while
-let counterOne = 0;
-while (counterOne < 10) {
-  console.log(counterOne);
-  counterOne++;
-}
+//todo: while
+// let counterOne = 0;
+// while (counterOne < 10) {
+//   console.log(counterOne);
+//   counterOne++;
+// }
 
-// do: condition after console.log
+//todo: do: condition after console.log
 let counterTwo = 10;
 do {
   console.log(counterTwo);
   counterTwo--;
 } while (counterTwo > 0);
 
-// forEach
+//todo: forEach
 todos.forEach((todo, ind) => console.log(ind, todo))
+
+function logTodos(todo, i) {
+  console.log(i, todo);
+}
+
+todos.forEach(logTodos);
+
+//todo: check 2
+let database2 = [
+  {
+    username: 'andrei',
+    password: 'secret'
+  },{
+    username: 'sally',
+    password: '123'
+  },
+  {
+    username: 'ingrid',
+    password: '789'
+  }
+];
+
+const newsFeed2 = [
+  {
+    username: 'Bobby',
+    timeline: "So tired from all that learning"
+  },
+  {
+    username: 'Sally',
+    timeline: "Js is so cool!"
+  },
+  {
+    username: 'Mitch',
+    timeline: "Ruby is pretty cool!"
+  }
+]
+
+const userNamePrompt = prompt("What is your username? ");
+const passwordPrompt = prompt("What is your password? ");
+
+function isUserValid(user, pwd) {
+  for (let i = 0; i < database2.length; i++) {
+    if (database2[i].username === user &&
+        database2[i].password === pwd 
+      ) {
+        return true
+      }
+  }
+  return false;
+}
+
+function signIn2(user, pwd) {
+  // console.log(isUserValid(user, pwd));
+  
+  if (isUserValid(user, pwd)) {
+    console.log(newsFeed2);
+  } else {
+    console.log('Sorry, wrong username or password');
+  }
+}
+
+signIn2(userNamePrompt, passwordPrompt);
+// What is your username? sally
+// What is your password? 123
+// [
+//   { username: 'Bobby', timeline: 'So tired from all that learning' },
+//   { username: 'Sally', timeline: 'Js is so cool!' },
+//   { username: 'Mitch', timeline: 'Ruby is pretty cool!' }
+// ]
+
+
+//TODO: JS Keywords
+// break
+// case
+// catch
+// class
+// for
+// var
+// ...
