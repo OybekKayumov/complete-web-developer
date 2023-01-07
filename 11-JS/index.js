@@ -228,7 +228,7 @@ checkDriverAge();
 //BONUS: Instead of using the prompt. Now, only use console.log and make the checkDriverAge() function accept an argument of age, so that if you enter:
 // checkDriverAge(92);
 // it returns "Powering On. Enjoy the ride!"
-
+/*
 const checkDriverAge2 = function() {  
   var age = prompt("What is your age?");
   if (Number(age) < 18) {
@@ -239,6 +239,51 @@ const checkDriverAge2 = function() {
     return "Congratulations on your first year of driving. Enjoy the ride!";
   }
 }
-
+*/
 // console.log(checkDriverAge2(29));
-console.log( checkDriverAge2());
+// console.log( checkDriverAge2());
+
+// TODO: JS data structures
+// Array
+const list =['tiger', 'cat', 'bear', 'bird'];
+console.log( list[1]); // cat
+
+const numbers = [1, 2, 3, true, function apple() {
+  console.log('apple');
+}, undefined, null, 'animals'];
+
+console.log(numbers[4]);
+
+console.log(numbers);
+// [ 1, 2, 3, true, [Function: apple], undefined, null, 'animals' ] 
+
+// nested
+const listNested =[
+  ['tiger', 'cat', 'bear', 'bird']
+];
+// bear
+console.log(listNested[0][2]);
+
+//
+list2 = ['tiger', 'cat', 'bear', 'bird'];
+list2.shift();
+console.log(list2);
+// [ 'cat', 'bear', 'bird' ]
+
+list2.pop()
+console.log(list2);
+// [ 'cat', 'bear' ]
+
+list2.push('elephant');
+console.log(list2);
+// [ 'cat', 'bear', 'elephant' ]
+
+const list3 = list2.concat(['bee', 'deer'])
+console.log(list2);
+// [ 'cat', 'bear', 'elephant' ]
+console.log(list3);
+// [ 'cat', 'bear', 'elephant', 'bee', 'deer' ]
+
+list3.sort();
+console.log(list3);
+// [ 'bear', 'bee', 'cat', 'deer', 'elephant' ]
