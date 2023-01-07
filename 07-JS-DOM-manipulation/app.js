@@ -160,13 +160,18 @@ document.addEventListener('click', (e) => {
 document.querySelector('.div2').addEventListener('click', (e) => {
   e.stopPropagation();
   console.log('DIV 2');
-}, false)
+}, {once: true})
 
 document.querySelector('.div1').addEventListener('click', (e) => {  
   console.log('DIV 1');
 }, false)
 
-document.querySelector('.buttonProp').addEventListener('click', (e) => {
-  console.log(e.target);
+// document.querySelector('.buttonProp').addEventListener('click', (e) => {
+//   e.preventDefault();
+//   console.log(e.target.innerText = 'clicked!');
+// }, false)
+
+document.querySelector('.button1').addEventListener('click', function(e) {
+  e.preventDefault();
   console.log(e.target.innerText = 'clicked!');
 }, false)

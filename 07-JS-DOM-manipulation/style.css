@@ -50,14 +50,34 @@ h1 {
 }
 
 .div2 {
-  width: 150px;
-  height: 150px;
+  /* width: 150px;
+  height: 150px; */
   border: 2px solid red;  
 }
 
 .div1 {
-  width: 70px;
-  height: 70px;
+  /* width: 70px;
+  height: 70px; */
   margin: 20px;
   border: 2px solid white;
+}
+
+.buttonProp {
+  display: block;
+  font-size: 30px;
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button1 {
+  display: block;
+  font-size: 30px;
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
 }
