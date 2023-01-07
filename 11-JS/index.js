@@ -381,7 +381,7 @@ const newsFeed = [
     timeline: "Js is so cool!"
   }
 ]
-
+/*
 const userNamePrompt = prompt("What is your username? ");
 const passwordPrompt = prompt("What is your password? ");
 
@@ -396,19 +396,21 @@ function signIn(user, pwd) {
 }
 
 signIn(userNamePrompt, passwordPrompt);
+*/
 
 //TODO: JS terminology
 // function declaration
-function name(params) {
+// function name(params) {
   
-}
+// }
 
 // function expression
-const newFn = function name(params) {
+// const newFn = function name(params) {
   
-};
+// };
 
 //! expression is smth that produces a value
+/*
 1+3;
 let a = 2;
 return true;
@@ -429,4 +431,20 @@ const obj = {
 }
 // access to method
 obj.thisIsMethod();
+*/
 
+//TODO: loops in js
+const todos = [
+  'clear room!',
+  'brush teeth!',
+  'exercise!',
+  'study js!',
+  'eat healthy!'
+];
+console.log('loop' );
+
+const todosLength = todos.length;
+for (let i = 0; i < todos.length; i++) {
+  console.log(i, todos[i]);
+  todos.pop()
+}
