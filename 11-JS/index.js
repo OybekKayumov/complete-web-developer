@@ -444,7 +444,25 @@ const todos = [
 console.log('loop' );
 
 const todosLength = todos.length;
-for (let i = 0; i < todos.length; i++) {
-  console.log(i, todos[i]);
-  todos.pop()
+// for (let i = 0; i < todos.length; i++) {
+//   console.log(i, todos[i]);
+//   todos.pop()
+// }
+
+
+// while
+let counterOne = 0;
+while (counterOne < 10) {
+  console.log(counterOne);
+  counterOne++;
 }
+
+// do: condition after console.log
+let counterTwo = 10;
+do {
+  console.log(counterTwo);
+  counterTwo--;
+} while (counterTwo > 0);
+
+// forEach
+todos.forEach((todo, ind) => console.log(ind, todo))
