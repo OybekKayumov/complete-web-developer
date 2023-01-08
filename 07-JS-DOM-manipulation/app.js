@@ -148,7 +148,7 @@ revealBtn.addEventListener('click', revealContent)
 //1 event capturing
 //2 target
 //3 event bubbling
-
+/*
 window.addEventListener('click', (e) => {  
   console.log('Window');
 }, false)
@@ -175,6 +175,16 @@ document.querySelector('.button1').addEventListener('click', function(e) {
   e.preventDefault();
   console.log(e.target.innerText = 'clicked!');
 }, false)
-
+*/
 // TODO: Event delegation allows users to append a SINGLE event listener to a parent element that adds it to all of its present AND future descendants that match a selector
+
+document.querySelector('#football').addEventListener('click', function (e) {
+  console.log('football is clicked');
+
+  const target = e.target;
+
+  if (target.matches('li')) {
+    target.style.backgroundColor = 'lightgrey'
+  }
+})
 
