@@ -178,6 +178,7 @@ document.querySelector('.button1').addEventListener('click', function(e) {
 */
 // TODO: Event delegation allows users to append a SINGLE event listener to a parent element that adds it to all of its present AND future descendants that match a selector
 
+/*
 document.querySelector('#football').addEventListener('click', function (e) {
   console.log('football is clicked');
 
@@ -187,4 +188,14 @@ document.querySelector('#football').addEventListener('click', function (e) {
     target.style.backgroundColor = 'lightgrey'
   }
 })
+*/
 
+document.querySelector('#sports').addEventListener('click', function (e) {
+  console.log(e.target.getAttribute('id') + ' is clicked');
+
+  const target = e.target;
+
+  if (target.matches('li')) {
+    target.style.backgroundColor = 'green';
+  }
+})
