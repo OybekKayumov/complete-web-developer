@@ -175,3 +175,6 @@ document.querySelector('.button1').addEventListener('click', function(e) {
   e.preventDefault();
   console.log(e.target.innerText = 'clicked!');
 }, false)
+
+// TODO: Event delegation allows users to append a SINGLE event listener to a parent element that adds it to all of its present AND future descendants that match a selector
+
