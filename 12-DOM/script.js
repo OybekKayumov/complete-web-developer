@@ -81,15 +81,7 @@ btnEnt.addEventListener('click', function (e) {
 
 // input value
 // keypress Enter
-input.addEventListener('keypress', function (e) {
-  // console.log(e.which);
-  if (inputLength() > 0 && e.key === 'Enter') {
-    createListEl()
-  } 
-  // else {
-  //   alert('enter todo')
-  // }
-})
+input.addEventListener('keypress', addList)
 
 //todo: dry
 function inputLength() {
@@ -103,7 +95,11 @@ function createListEl() {
     input.value = '';
 }
 
-function addList() {
-  
-  
+function addList(e) {  
+    if (inputLength() > 0 && e.key === 'Enter') {
+      createListEl()
+    } 
+    // else {
+    //   alert('enter todo')
+    // }  
 }
