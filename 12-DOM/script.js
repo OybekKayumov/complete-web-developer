@@ -51,10 +51,24 @@
 
 //TODO: DOM Events
 const btn = document.getElementsByTagName('button')[0];  // returns array , [0] get 1st element
-btn.addEventListener('click', function (e) {
-  console.log('Clicked');
+// btn.addEventListener('click', function (e) {
+//   console.log('Clicked');
+// })
+
+// btn.addEventListener('mouseenter', function (e) {
+//   console.log('Clicked');
+// })
+const btnEnt = document.getElementById('enter');
+const input = document.getElementById('userinput');
+const ul = document.querySelector('ul');
+
+btnEnt.addEventListener('click', function (e) {
+  console.log('click is working');
+  const li = document.createElement('li');
+  li.appendChild(document.createTextNode('testing'));
+  ul.appendChild(li);
 })
 
-btn.addEventListener('mouseenter', function (e) {
-  console.log('Clicked');
-})
+// 1 create an element        -- createElement
+// 2 add text to new element  -- createTextNode
+// 3 append as a child element -- appendChild
