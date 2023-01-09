@@ -28,6 +28,13 @@
     -30px 20px 40px dimgrey;
 }
 
-.done {
+.done {  
   text-decoration: line-through;
+  text-decoration-style: solid;
+  text-decoration-color: red;
+  text-decoration-thickness: 2px;
+}
+
+ul {
+  margin: 50px;
 }

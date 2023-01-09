@@ -30,7 +30,16 @@
 const h1 = document.querySelector('h1');
 h1.className = 'coolTitle';
 
+// document.querySelector('li').classList.add('coolTitle');
 
+document.querySelector('li').classList.add('done');
 
+// h1.innerHTML = "<strong>!!!!!</strong>"
+
+console.log( document.querySelectorAll('li')[1]) // jello
+console.log( document.querySelectorAll('li')[1].parentElement ); // ul
+console.log( document.querySelectorAll('li')[1].parentElement.parentElement ) // body
+console.log( document.querySelectorAll('li')[1].parentElement.parentElement.parentElement ) // html
+console.log( document.querySelectorAll('li')[1].parentElement.parentElement.parentElement.parentElement ) // null
 
 
