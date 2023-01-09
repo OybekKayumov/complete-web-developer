@@ -33,6 +33,8 @@ h1.className = 'coolTitle';
 // document.querySelector('li').classList.add('coolTitle');
 
 document.querySelector('li').classList.add('done');
+document.querySelector('li').classList.remove('done');
+document.querySelector('li').classList.toggle('done');
 
 // h1.innerHTML = "<strong>!!!!!</strong>"
 
@@ -41,5 +43,9 @@ console.log( document.querySelectorAll('li')[1].parentElement ); // ul
 console.log( document.querySelectorAll('li')[1].parentElement.parentElement ) // body
 console.log( document.querySelectorAll('li')[1].parentElement.parentElement.parentElement ) // html
 console.log( document.querySelectorAll('li')[1].parentElement.parentElement.parentElement.parentElement ) // null
+
+//TODO: Cache selectors in variables
+
+const h1Cache = document.querySelector('h1');
 
 
