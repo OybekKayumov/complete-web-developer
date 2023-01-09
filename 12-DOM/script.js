@@ -27,25 +27,34 @@
 // document.querySelector('h1').style.background = 'red';
 // document.querySelector('h1').style.color = 'black';
 
-const h1 = document.querySelector('h1');
-h1.className = 'coolTitle';
+// const h1 = document.querySelector('h1');
+// h1.className = 'coolTitle';
 
 // document.querySelector('li').classList.add('coolTitle');
 
-document.querySelector('li').classList.add('done');
-document.querySelector('li').classList.remove('done');
-document.querySelector('li').classList.toggle('done');
+// document.querySelector('li').classList.add('done');
+// document.querySelector('li').classList.remove('done');
+// document.querySelector('li').classList.toggle('done');
 
 // h1.innerHTML = "<strong>!!!!!</strong>"
 
-console.log( document.querySelectorAll('li')[1]) // jello
-console.log( document.querySelectorAll('li')[1].parentElement ); // ul
-console.log( document.querySelectorAll('li')[1].parentElement.parentElement ) // body
-console.log( document.querySelectorAll('li')[1].parentElement.parentElement.parentElement ) // html
-console.log( document.querySelectorAll('li')[1].parentElement.parentElement.parentElement.parentElement ) // null
+// console.log( document.querySelectorAll('li')[1]) // jello
+// console.log( document.querySelectorAll('li')[1].parentElement ); // ul
+// console.log( document.querySelectorAll('li')[1].parentElement.parentElement ) // body
+// console.log( document.querySelectorAll('li')[1].parentElement.parentElement.parentElement ) // html
+// console.log( document.querySelectorAll('li')[1].parentElement.parentElement.parentElement.parentElement ) // null
 
 //TODO: Cache selectors in variables
 
-const h1Cache = document.querySelector('h1');
+// const h1Cache = document.querySelector('h1');
 
 
+//TODO: DOM Events
+const btn = document.getElementsByTagName('button')[0];  // returns array , [0] get 1st element
+btn.addEventListener('click', function (e) {
+  console.log('Clicked');
+})
+
+btn.addEventListener('mouseenter', function (e) {
+  console.log('Clicked');
+})
