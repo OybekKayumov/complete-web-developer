@@ -80,3 +80,24 @@ btnEnt.addEventListener('click', function (e) {
 // 3 append as a child element -- appendChild
 
 // input value
+// keypress Enter
+input.addEventListener('keypress', function (e) {
+  // console.log(e.which);
+  if (input.value.length > 0 && e.key === 'Enter') {
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(input.value));
+    ul.appendChild(li);
+    input.value = '';
+  } else {
+    alert('enter todo')
+  }
+})
+
+// dry
+function inputLength() {
+  return input.value.length
+}
+
+function createList() {
+  
+}
