@@ -33,3 +33,43 @@ funniestFunction()
 
 console.log(fun);
 // ahhh // ! in last fn we modified fun, so it is now 'ahhh'
+
+// TODO: ternary operator
+function isValid(bool) {
+  return bool;
+}
+
+// const answer = isValid(true) ? 'You may enter' : 'Access denied';
+// console.log(answer);  // You may enter
+
+const answer = isValid(false) ? 'You may enter' : 'Access denied';
+console.log(answer);  // Access denied
+
+//todo: switch
+function moveCommand(direction) {
+  let whatHappens;
+  switch (direction) {
+    case 'forward':
+      whatHappens = 'you encounter a monster'
+      break;
+    case 'back':
+      whatHappens = 'you arrived home'
+      break;
+    case 'right':
+      whatHappens = 'you found a river'
+      break;
+    case 'left':
+      whatHappens = 'you run into a troll'
+      break;
+  
+    default:
+      whatHappens = 'please enter a valid direction'
+  }
+
+  return whatHappens;
+}
+
+console.log( moveCommand('forward') );
+console.log( moveCommand('back') );
+console.log( moveCommand('right') );
+console.log( moveCommand('left') );
