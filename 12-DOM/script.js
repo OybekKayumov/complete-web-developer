@@ -83,21 +83,27 @@ btnEnt.addEventListener('click', function (e) {
 // keypress Enter
 input.addEventListener('keypress', function (e) {
   // console.log(e.which);
-  if (input.value.length > 0 && e.key === 'Enter') {
-    const li = document.createElement('li');
-    li.appendChild(document.createTextNode(input.value));
-    ul.appendChild(li);
-    input.value = '';
-  } else {
-    alert('enter todo')
-  }
+  if (inputLength() > 0 && e.key === 'Enter') {
+    createListEl()
+  } 
+  // else {
+  //   alert('enter todo')
+  // }
 })
 
-// dry
+//todo: dry
 function inputLength() {
   return input.value.length
 }
 
-function createList() {
+function createListEl() {
+  const li = document.createElement('li');
+    li.appendChild(document.createTextNode(input.value));
+    ul.appendChild(li);
+    input.value = '';
+}
+
+function addList() {
+  
   
 }
