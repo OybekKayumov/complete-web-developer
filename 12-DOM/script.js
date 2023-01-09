@@ -64,11 +64,19 @@ const ul = document.querySelector('ul');
 
 btnEnt.addEventListener('click', function (e) {
   console.log('click is working');
-  const li = document.createElement('li');
-  li.appendChild(document.createTextNode('testing'));
-  ul.appendChild(li);
+  console.log(input.value);
+  if (input.value.length > 0) {
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(input.value));
+    ul.appendChild(li);
+    input.value = '';
+  } else {
+    alert('enter todo')
+  }
 })
 
 // 1 create an element        -- createElement
 // 2 add text to new element  -- createTextNode
 // 3 append as a child element -- appendChild
+
+// input value
