@@ -429,3 +429,65 @@ const wizard2 = new Wizard('Shawn', 'Dark MAgic')
 // 5  play() {
   //   console.log(`Weee I'm a ${this.type}`);
   // }
+
+
+//TODO: Pass by Value and Pass by Reference
+let i = 5;
+// let k = 10;
+let k = i;
+k++;
+console.log('i: ', i); // 5
+console.log('k: ', k); // 6
+//todo: Pass by Value
+// we copied value(5) and paste it in new memory space(k=5)
+// no connection with two values i=5 and k=5;
+// pass by value means we copy the value and we create that value somewhere else in memory
+
+//todo: Pass by Reference
+let objNew1 = {name: 'Yao', pwd: '123'};
+let objNew2 = objNew1;
+
+objNew2.pwd = 'easy-pwd';
+console.log('objNew1: ', objNew1 ); 
+console.log('objNew2: ', objNew2 ); 
+// objNew1:  {name: 'Yao', pwd: 'easy-pwd'}   // ! same pwd
+// objNew2:  {name: 'Yao', pwd: 'easy-pwd'}   // ! same pwd
+
+// Objects in JavaScript are stored in memory and are passed by reference 
+// which means we DON'T COPY the values like in "primitive types"
+// objNew1 and objNew2 are pointing to same Object {name: 'Yao', pwd: '123'}
+
+//!example 2
+let c1 = [1,2,3,4,5];
+let d1 = c1;
+d1.push(1897231);
+console.log('d1: ', d1);
+console.log('c1: ', c1);
+// d1:  (6) [1, 2, 3, 4, 5, 1897231]    // !
+// c1:  (6) [1, 2, 3, 4, 5, 1897231]    // !
+
+// let d2 = [].concat(c);  // c1 is NOT changed, d2 changed
+
+let newObj = {a: 'a', b: 'b', c: 'c'};
+// newObj.c = 5;
+let clone = Object.assign({}, newObj);  // clone object
+console.log('clone: ', clone);
+// clone:  {a: 'a', b: 'b', c: 'c'}   // ! no effect, (c: c)
+
+// but
+let clone2 = newObj; //! reference to same object
+console.log('clone2: ', clone2);     //! clone2:  {a: 'a', b: 'b', c: 5}, c:5
+
+//! spread operator
+let clone3 = {...newObj};
+console.log('clone3: ', clone3 );   // clone3:  {a: 'a', b: 'b', c: 5}
+
+newObj.c = 5;
+console.log('newObj: ', newObj);
+
+// newObj:  {a: 'a', b: 'b', c: 5}
+// clone:  {a: 'a', b: 'b', c: 'c'}
+// clone2:  {a: 'a', b: 'b', c: 'c'}
+// clone3:  {a: 'a', b: 'b', c: 'c'}
+
+// 
