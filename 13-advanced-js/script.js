@@ -272,5 +272,19 @@ console.log( compose(sum, sum)(5) );  // 7
   // sum(6+1)
   // f(7) // ! 7
 
+//! avoiding side effects, functional purity
 
+// side effect example
+let x = 1;
+function y() {
+  x = 2;       // ! changes x
+}
+
+// "functional purity" is always return a value(something), not 'undefined'
+// power in returning a value is 
+  // by avoiding side effect and always returning we create smth that we call 
+  // DETERMINISTIC - means no matter what, if our input go through this function
+  // return value will be always the SAME
+
+//! create functions that minimized side effects
 
