@@ -73,3 +73,42 @@ console.log( moveCommand('forward') );
 console.log( moveCommand('back') );
 console.log( moveCommand('right') );
 console.log( moveCommand('left') );
+
+// change this function into a ternary and assign it to variable called experiencePoints
+function experiencePoints() {
+  if (winBattle()) {
+      return 10;
+  } else {
+      return 1;
+  }
+}
+
+// 
+const winBattle = function () {}
+
+const experiencePoints1 = winBattle ? 10 : 1;
+console.log(experiencePoints1); // 10
+
+// TODO: variables
+// let and const
+
+const player = 'bob'
+let experience = 100;
+let wizardLevel = false;
+var varlevel = false;
+
+if (experience > 90) {
+  let wizardLevel = true;
+  console.log('inside: ', wizardLevel);
+  var varlevel = true;
+  console.log('inside var: ', varlevel);
+}
+// inside:  true
+// inside var:  true
+
+console.log('outside: ', wizardLevel);  // false
+// outside:  false
+
+console.log('outside var: ', varlevel);
+// outside var:  true
+
