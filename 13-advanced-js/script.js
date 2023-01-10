@@ -302,9 +302,29 @@ const newArr = arr.forEach(num => {
 
 console.log('forEach: ', doubled); // [ 2, 4, 20, 32 ]
 
-//! map, filter, reduce
+//! map, filter, reduce: NO SIDE EFFECT
+// map() method creates a new array populated with the results of calling a provided function on every element in the calling array
 const mapArr = arr.map(num => {
   return num * 2;
 })
 console.log('mapArr: ', mapArr );
 // mapArr:  [ 2, 4, 20, 32 ]
+
+//! without return
+// mapArr:  [ undefined, undefined, undefined, undefined ]
+
+//! filter returns new Array
+// filter() method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function
+
+const filterArr = arr.filter(num => {
+  return num > 5
+})
+console.log('filterArr: ', filterArr); // filterArr:  [ 10, 16 ]
+
+//! reduce
+// reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value
+const reduceArr = arr.reduce((acc, curr) => {
+  return acc + curr;
+}, 0)
+
+console.log('reduceArr: ', reduceArr); // 29
