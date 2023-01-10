@@ -176,3 +176,25 @@ function greet(name='', age=30, pet='cat') {
 
 console.log( greet() );
 // Hi  you seem to be 25. What a lovely cat you have
+
+//TODO: Symbol
+let sym1 = Symbol();
+let sym2 = Symbol('foo');
+let sym3 = Symbol('foo');
+
+console.log(sym1);
+console.log(sym2);
+console.log(sym3);
+// Symbol()
+// Symbol(foo)
+// Symbol(foo)
+
+console.log( sym2 === sym3 ) // false
+// symbols are used because they create completely uniq type
+
+//TODO: arrow functions
+const add = (a,b) => a + b;
+
+// function add(a, b) {
+//   return a + b;
+// }
