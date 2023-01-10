@@ -468,7 +468,14 @@ console.log('c1: ', c1);
 
 // let d2 = [].concat(c);  // c1 is NOT changed, d2 changed
 
-let newObj = {a: 'a', b: 'b', c: 'c'};
+// let newObj = {a: 'a', b: 'b', c: 'c'};
+let newObj = {
+  a: 'a', 
+  b: 'b', 
+  c: {
+    deep: 'try and copy me'
+  }
+};
 // newObj.c = 5;
 let clone = Object.assign({}, newObj);  // clone object
 console.log('clone: ', clone);
@@ -482,7 +489,10 @@ console.log('clone2: ', clone2);     //! clone2:  {a: 'a', b: 'b', c: 5}, c:5
 let clone3 = {...newObj};
 console.log('clone3: ', clone3 );   // clone3:  {a: 'a', b: 'b', c: 5}
 
-newObj.c = 5;
+let superClone = JSON.parse(JSON.stringify(newObj));
+
+// newObj.c = 5;
+newObj.c.deep = 'hahaha';
 console.log('newObj: ', newObj);
 
 // newObj:  {a: 'a', b: 'b', c: 5}
@@ -490,4 +500,5 @@ console.log('newObj: ', newObj);
 // clone2:  {a: 'a', b: 'b', c: 'c'}
 // clone3:  {a: 'a', b: 'b', c: 'c'}
 
-// 
+// let superClone = JSON.parse(JSON.stringify(newObj));
+console.log('superClone: ', superClone);  //! not changed
