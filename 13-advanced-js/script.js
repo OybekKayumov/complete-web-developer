@@ -292,3 +292,19 @@ function y() {
 // 1. Deterministic --> always produces the same results given the same inputs
 // 2. No Side Effects -->  It does not depend on any state, or data, change during a program’s execution. It must only depend on its input elements.
 
+//TODO: advanced arrays
+const arr = [1,2,10,16];
+
+const doubled = [];
+const newArr = arr.forEach(num => {
+  doubled.push(num * 2);
+})
+
+console.log('forEach: ', doubled); // [ 2, 4, 20, 32 ]
+
+//! map, filter, reduce
+const mapArr = arr.map(num => {
+  return num * 2;
+})
+console.log('mapArr: ', mapArr );
+// mapArr:  [ 2, 4, 20, 32 ]
