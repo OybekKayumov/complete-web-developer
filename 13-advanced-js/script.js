@@ -328,3 +328,104 @@ const reduceArr = arr.reduce((acc, curr) => {
 }, 0)
 
 console.log('reduceArr: ', reduceArr); // 29
+
+//TODO: advanced object
+// reference type
+// context
+// instantiation
+
+//! reference type
+console.log('***advanced object***');
+console.log( [] === [] );   // false, 2 different data structures
+console.log( [1] === [1] ); // false
+
+//
+const object1 = {val: 10};
+const object2 = object1;     // reference to object1
+const object3 = {val: 10};   // new object3
+
+console.log(object1 === object2); // true
+console.log(object1 === object3); // false
+
+object1.val = 15;
+console.log(object2.val);  // 15
+console.log(object3.val);  // 10
+
+// objects are 'reference types' in JS
+// numbers, boolean, undefined, null, symbol are primitive type, defined by programming language
+
+// example
+let number1 = 1; 
+let number2 = 2; 
+
+//! context vs scope
+function b() {
+  let aaa = 4;
+}
+// console.log('aaa', aaa); //! ReferenceError: aaa is not defined, scope
+
+console.log(this);  // Window object
+//! "this" means what is the object environment that we're in right now
+// what is the LEFT of the DOT: window.alert('hi'), "."
+// this.alert('hi) is same
+// .alert()
+// "this" refers to what object it's inside of
+
+//examples
+function aa() {
+  console.log(this);
+}
+
+aa();  // Window
+
+//! new value for this
+const object4 = {
+  a: function () {
+    console.log('this obj4: ', this);
+  }
+}
+
+console.log( object4.a())  // this obj4:  {a: ƒ}
+
+
+//! instantiation
+// make instance of objects
+class Player {
+  constructor(name, type) {
+    console.log('Player this: ', this);
+    this.name = name;
+    this.type = type;
+  }
+
+  introduce() {
+    console.log(`Hi, I am ${this.name}, and I am a ${this.type}`);
+  }
+}
+
+// constructor runs first and create (name and type) properties on Player object
+//reason we use "this" here - we can access to name and type property
+
+class Wizard extends Player {
+  constructor(name, type) {
+    super(name, type)
+  }
+
+  play() {
+    console.log(`Weee I'm a ${this.type}`);
+  }
+}
+
+const wizard1 = new Wizard('Shelly', 'Healer')
+const wizard2 = new Wizard('Shawn', 'Dark MAgic')
+
+//* Player this:  Wizard {}  // ! ?
+// steps, run:
+// 1 const wizard1 = new Wizard('Shelly', 'Healer')
+// 2 super(name, type) in Wizard
+// 3 console.log('Player this: ', this);  // Wizard
+// 4  introduce() {
+    // console.log(`Hi, I am ${this.name}, and I am a ${this.type}`);
+  // }
+// 5  play() {
+  //   console.log(`Weee I'm a ${this.type}`);
+  // }
