@@ -149,6 +149,7 @@ console.log(obj2);
 // { '3': 'hey', 'john snow': 'hello', raysmith: 'hihi' }
 
 //todo:
+/*
 const a = 'simon';
 const b = true;
 const c = {};
@@ -164,6 +165,7 @@ const obj4 = {
   b,
   c
 }
+*/
 
 //todo: template strings
 const greeting = `Hello, ${name}`;
@@ -198,3 +200,52 @@ const add = (a,b) => a + b;
 // function add(a, b) {
 //   return a + b;
 // }
+
+
+//TODO: advanced functions
+const first = () => {
+  const greet = 'hi';
+  const second = () => {
+    console.log(2, greet);
+  }
+  return second;
+}
+
+const newFunc = first();
+// newFunc();
+console.log('***********' );
+// console.log('newFn: ', newFunc);
+console.log('newFn(): ', newFunc());
+
+//! closures - 
+  // a function ran, 
+  // the function executed
+  // it's never going to execute again
+  // BUT it's going remember that there are references o those variables
+  // so the CHILD(second) scope always has access to the parent scope(first)
+
+  // and parent scope doesn't have access to the child scope
+
+const first2 = () => {
+  const greet = 'hi';
+  const second2 = () => {
+    const name = 'bob';   // first2 fn doesn't have access to 'name'
+    console.log(2, greet);
+  }
+  return second2;
+}
+
+const newFunc2 = first2();
+console.log('***********' );
+console.log('newFn2(): ', newFunc2());
+
+//! currying
+// process of converting a function that takes multiple arguments
+// into a function takes them one at a time
+const multiply = (a,b) => a * b;
+const curriedMultiply = (a) => (b) => a * b;
+// console.log( curriedMultiply(3) ); // (3) => (b) => 3 * b;
+
+console.log( curriedMultiply(3)(4) ); // (3) => (4) => 3 * 4;
+// 12
+

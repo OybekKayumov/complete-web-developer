@@ -1,30 +1,30 @@
 // change everything below to the newer Javascript!
 
 // let + const
-var a = 'test';
-var b = true;
-var c = 789;
-a = 'test2';
+// var a = 'test';
+// var b = true;
+// var c = 789;
+// a = 'test2';
 //
-let a = 'test'
-const b = true;
-const c = 789;
-a = 'test2'
+// let a = 'test'
+// const b = true;
+// const c = 789;
+// a = 'test2'
 
 // Destructuring
 var person = {
-    firstName : "John",
-    lastName  : "Doe",
-    age       : 50,
-    eyeColor  : "blue"
+    firstName1 : "John",
+    lastName1  : "Doe",
+    age1       : 50,
+    eyeColor1  : "blue"
 };
 
-var firstName = person.firstName;
-var lastName = person.lastName;
-var age = person.age;
-var eyeColor = person.eyeColor;
+var firstName1 = person.firstName1;
+var lastName1 = person.lastName1;
+var age1 = person.age1;
+var eyeColor1 = person.eyeColor1;
 //
-const {firstName, lastName, age, eyeColor} = person;
+const {firstName2, lastName2, age2, eyeColor2} = person;
 
 
 // Object properties
@@ -45,10 +45,11 @@ var okObj = {
 };
 
 // Template strings
+/*
 var message = "Hello " + firstName + " have I met you before? I think we met in " + city + " last summer no???";
 //
-const message = `Hello ${firstName} have I met you before? I think we met in ${city} last summer no???`;
-
+const message2 = `Hello ${firstName} have I met you before? I think we met in ${city} last summer no???`;
+*/
 
 // default arguments
 // default age to 10;
@@ -56,7 +57,7 @@ function isValidAge(age) {
     return age
 }
 //
-function isValidAge(age=10) {
+function isValidAge1(age=10) {
   return age
 }
 
@@ -74,6 +75,6 @@ function whereAmI(username, location) {
     }
 }
 
-const whereAmI = (username, location) => {
+const whereAmI1 = (username, location) => {
   return username && location ? "I am not lost" : "I am totally lost"
 } 
