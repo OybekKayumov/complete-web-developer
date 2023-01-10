@@ -286,5 +286,9 @@ function y() {
   // DETERMINISTIC - means no matter what, if our input go through this function
   // return value will be always the SAME
 
-//! create functions that minimized side effects
+//!try to create functions that minimized side effects
+
+//! What are the two elements of a pure function?
+// 1. Deterministic --> always produces the same results given the same inputs
+// 2. No Side Effects -->  It does not depend on any state, or data, change during a program’s execution. It must only depend on its input elements.
 
