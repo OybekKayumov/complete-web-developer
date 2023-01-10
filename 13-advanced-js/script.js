@@ -248,4 +248,29 @@ const curriedMultiply = (a) => (b) => a * b;
 
 console.log( curriedMultiply(3)(4) ); // (3) => (4) => 3 * 4;
 // 12
+const multiplyBy5 = curriedMultiply(5);
+
+// now
+console.log( multiplyBy5(10) );  // 50
+
+//! compose
+const compose = (f, g) => (a) => f(g(a));
+// f is a function
+// g is a function
+
+const sum = (num) => num + 1;
+
+console.log( compose(sum, sum)(5) );  // 7
+// f --> sum
+// g --> sum
+// a --> 5
+// 1. f(g(5))
+  // f(sum(5))
+  // f(6) <--> f(sum(5+1))
+// 2. f(6)
+  // sum(6)
+  // sum(6+1)
+  // f(7) // ! 7
+
+
 
