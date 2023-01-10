@@ -135,3 +135,44 @@ console.log(obj);
 const {player1, experience1} = obj;
 let {wizardLevel1} = obj;
 // this syntax same as 2 lines above, we select the properties we want from object 
+
+//todo:
+const name = 'john snow';
+
+const obj2 = {
+  [name]: 'hello',
+  ['ray' + 'smith']: 'hihi',
+  [1+2]: 'hey'
+}
+
+console.log(obj2);
+// { '3': 'hey', 'john snow': 'hello', raysmith: 'hihi' }
+
+//todo:
+const a = 'simon';
+const b = true;
+const c = {};
+
+const obj3 = {
+  a: a,
+  b: b,
+  c: c
+}
+// we can write as 
+const obj4 = {
+  a,
+  b,
+  c
+}
+
+//todo: template strings
+const greeting = `Hello, ${name}`;
+console.log(greeting); // Hello, john snow
+
+//todo: default arguments
+function greet(name='', age=30, pet='cat') {
+  return `Hi ${name} you seem to be ${age-5}. What a lovely ${pet} you have`
+}
+
+console.log( greet() );
+// Hi  you seem to be 25. What a lovely cat you have
