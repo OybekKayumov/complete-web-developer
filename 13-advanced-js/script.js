@@ -112,3 +112,26 @@ console.log('outside: ', wizardLevel);  // false
 console.log('outside var: ', varlevel);
 // outside var:  true
 
+//todo: const
+experience = 80
+// player = 'sally'; //! TypeError: Assignment to constant variable.
+
+const obj = {
+  player: 'bob',
+  experience: 100,
+  wizardLevel: false,
+}
+
+obj.wizardLevel = true;
+console.log(obj);
+// { player: 'bob', experience: 100, wizardLevel: true }  //! true
+// we can change object constant
+
+// TODO: destructuring
+// const player1 = obj.player;
+// const experience1 = obj.experience;
+// let wizardLevel1 = obj.wizardLevel;
+
+const {player1, experience1} = obj;
+let {wizardLevel1} = obj;
+// this syntax same as 2 lines above, we select the properties we want from object 
