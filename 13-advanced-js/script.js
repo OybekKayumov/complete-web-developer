@@ -1027,3 +1027,56 @@ const newStr = 'js is the best';
 const repl = newStr.replaceAll('best', 'good');
 console.log(newStr, repl);
 // js is the best js is the good
+
+//TODO: debugging
+const flattened = [[0,1], [2,3], [4,5]].reduce(
+  (acc, arr) => {
+    // console.log(arr);
+    // console.log(acc);
+    // debugger
+    // return [].concat([0,1])
+    return acc.concat(arr);
+}, [])
+console.log('flattened: ', flattened);
+// flattened:  (6) [0, 1, 2, 3, 4, 5]
+
+// TODO: How JS works
+const one = () => {
+  const two = () => {
+    console.log('4');
+  }
+  two();
+}
+console.log( one() );
+//* 4
+
+// steps
+// 3 console.log('4')   // 4 remove from call stack
+// 2 two()              // 5 remove from call stack
+// 1 one()              // 6 remove from call stack
+// call stack
+
+console.log('1');
+setTimeout(() => {
+  console.log('2');
+}, 1000)
+console.log('3');
+//1
+//3
+//2
+
+
+// call stack
+
+// web api
+
+// callback queue
+
+// event loop
+
+// run callback fn (here arrow fn)
+// element.addEventListener('click', () => {
+//   console.log('clicked');
+// })
+
+//TODO Modules
