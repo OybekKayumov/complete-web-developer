@@ -573,3 +573,33 @@ console.log('cow: ', cow);
 console.log('cow: ', cow.sound());
 // cow:  Mammal {name: 'Shelly', type: 'cow', color: 'brown'}
 // Moo, I'm Shelly, and I'm a brown cow
+
+//todo: includes()
+'Hellooo'.includes('o');  // true
+
+const pets = ['cat', 'dog', 'cow'];
+pets.includes('dog');  // true
+pets.includes('birds');  // true
+
+//todo: exponential operator
+const square = (x) => x**2;
+const cube = (y) => y**3;
+
+//todo: Solve the below problems:
+
+// #1) Check if this array includes the name "John".
+const dragons = ['Tim', 'Johnathan', 'Sandy', 'Sarah'];
+dragons.includes('John');  // false
+
+// #2) Check if this array includes any name that has "John" inside of it. If it does, return that name or names in an array.
+const dragons1 = ['Tim', 'Johnathan', 'Sandy', 'Sarah'];
+dragons1.filter(name => name.includes('John'));  // Johnathan
+
+// #3) Create a function that calculates the power of 100 of a number entered as a parameter
+const calc = (num) => num**100 ;
+
+// #4) Using your function from #3, put in the parameter 10000. What is the result?
+console.log( calc(10) );    // 1e+100 
+console.log( calc(10000) ); // Infinity
+// Research for yourself why you get this result
+
