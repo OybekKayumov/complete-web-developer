@@ -603,3 +603,44 @@ console.log( calc(10) );    // 1e+100
 console.log( calc(10000) ); // Infinity
 // Research for yourself why you get this result
 
+//TODO: padStart, padEnd
+'turtle'.padStart(10);  // '    turtle'
+'turtle'.padEnd(10);    // 'turtle    '
+
+// Object.values
+// Object.entries
+// Object.keys
+
+let userObj = {
+  username0: 'santa',
+  username1: 'dave',
+  username2: 'grinch',
+}
+
+Object.keys(userObj).forEach((key, ind) => {
+  console.log(key, userObj[key] );
+})
+
+// username0 santa
+// username1 dave
+// username2 grinch
+
+Object.values(userObj).forEach((value) => {
+  console.log(value);
+})
+// santa
+// dave
+// grinch
+
+Object.entries(userObj).forEach((value) => {
+  console.log(value);
+})
+// (2) ['username0', 'santa']
+// (2) ['username1', 'dave']
+// (2) ['username2', 'grinch']
+
+const mod = Object.entries(userObj).map((value) => {
+  return value[1] + value[0].replace('username', '');
+})
+console.log('modified: ', mod);
+// modified:  (3) ['santa0', 'dave1', 'grinch2']
