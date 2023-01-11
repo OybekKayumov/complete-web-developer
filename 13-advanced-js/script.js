@@ -502,3 +502,26 @@ console.log('newObj: ', newObj);
 
 // let superClone = JSON.parse(JSON.stringify(newObj));
 console.log('superClone: ', superClone);  //! not changed
+
+//TODO: Type Coercion
+// convert certain types, when we use '=='
+//! 1 == '1' // true
+
+// === compare, but do not convert
+//! 1 === '1'  // false
+
+if (1) {
+  console.log('if 1: ', 5);
+}
+//5, because JS coerces 1 to true
+
+if (0) {
+  console.log('if 0: ', 5);
+}
+// undefined
+
+// -0 === +0         // true
+// Object.is(-0, +0) // false
+
+// NaN === NaN // false
+// NaN == NaN  // false
