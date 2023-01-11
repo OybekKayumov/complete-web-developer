@@ -525,3 +525,51 @@ if (0) {
 
 // NaN === NaN // false
 // NaN == NaN  // false
+
+//todo: Evaluate these:
+//#1
+// [2] === [2] // false
+// [2] == [2]  // false
+
+// {} === {}      // false
+// {} == {}      // false
+
+//#2 what is the value of property a for each object.
+const object11 = { a: 5 }; 
+const object22 = object11; 
+const object33 = object22; 
+const object44 = { a: 5}; 
+object11.a = 4;
+
+// object11  a:4
+// object22  a:4
+// object33  a:4
+// object44  a:5
+console.log('obj11: ', object11, object22, object33, object44);
+// obj11:  {a: 4} {a: 4} {a: 4} {a: 5}
+
+//#3 create two classes: an Animal class and a Mammal class. 
+// create a cow that accepts a name, type and color and has a sound method that moo's her name, type and color. 
+class Animal {
+  constructor(name, type, color) {
+    this.name = name;
+    this.type = type;
+    this.color = color;
+  }
+}
+
+class Mammal extends Animal {
+  constructor(name, type, color) {
+    super(name, type, color)
+  }
+
+  sound() {
+    console.log(`Moo, I'm ${this.name}, and I'm a ${this.color} ${this.type}`);
+  }
+}
+
+const cow = new Mammal('Shelly', 'cow', 'brown');
+console.log('cow: ', cow);
+console.log('cow: ', cow.sound());
+// cow:  Mammal {name: 'Shelly', type: 'cow', color: 'brown'}
+// Moo, I'm Shelly, and I'm a brown cow
