@@ -813,11 +813,11 @@ for (item in detailedBasket) {
 }
 
 // basket is like:
-basket2 = {
-  0: apples,
-  1: orange,
-  2: grapes
-}
+// basket2 = {
+//   0: apples,
+//   1: orange,
+//   2: grapes
+// }
 
 //todo: exercise
 const basket3 = ['apples', 'oranges', 'grapes'];
@@ -902,3 +902,128 @@ function checkBasket(basket, lookingFor) {
   return 'that does not exist in your basket'
 }
 
+//TODO: BigInt, Nullish Coalescing operator, optional chaining operator, promise, globalThis
+
+// typeof BigInt
+// 'function'
+// typeof 1n
+// 'bigint'
+
+// Number.MAX_SAFE_INTEGER
+// 9007199254740991
+
+// 9007199254740991n + 10n  // works
+// 9007199254740991 + 10    // err
+
+// 1n + 2n 
+// 3n typeOf bigint
+
+
+//todo: optional chaining operator
+let will_pokemon = {
+  pikachu: {
+    species: 'Mouse',
+    height: 0.4,
+    weight: 6
+  }
+}
+
+let weight = will_pokemon.pikachu.weight;
+console.log('weight: ', weight);
+// weight:  6
+
+let and_pokemon = {
+  // raichu: {
+  pikachu: {
+    species: 'Mouse',
+    height: 0.8,
+    weight: 30,
+    power: 'lightning'
+  }
+}
+
+let weight2 = and_pokemon.pikachu.weight;
+// or
+/*
+if (and_pokemon.pikachu && and_pokemon.pikachu.weight) {
+  let weight2 = and_pokemon.pikachu.weight;
+} else {
+  let weight2 = undefined
+  console.log(': ', weight2);
+}
+*/
+// or check for properties with "?"
+let weight3 = and_pokemon?.pikachu?.weight
+console.log('weight3: ', weight3);
+// weight3:  30
+
+// todo: Nullish Coalescing operator 
+let power = and_pokemon?.pikachu?.power || 'no power'
+//! if power: '', 0, no data --> 'no power', 
+// no or undefined
+console.log('power: ', power);
+
+
+//todo: Exercise 1: what do you think the MIN_SAFE_INTEGER is?
+console.log(Number.MAX_SAFE_INTEGER) //9007199254740991
+console.log(Number.MIN_SAFE_INTEGER) // -9007199254740991
+
+// Exercise 2: why does this throw an error? How can you fix it?
+// 3 + 4 + 1n
+3n + 4n + 1n
+3 + 4 + 1
+// Both produce the value of 8, but one is a Number type, the other is a BigInt type
+
+// Exercise 3: Clean up this code using optional chaining
+let will_pokemon1 = {
+    pikachu: {
+        species: 'Mouse Pokemon',
+        height: 0.4,
+        weight: 6,
+        power: 'lightning',
+        friend: { 
+            charizard: {
+                species: 'Dragon Pokemon',
+                height: 1.7,
+                weight: 90.5,
+                power: 'fire'
+            }
+        }
+    }
+}
+
+let andrei_pokemon = {
+    raichu: {
+        species: 'Mouse Pokemon',
+        height: 0.8,
+        weight: 30,
+        power: ''
+    }
+}
+
+if (andrei_pokemon && andrei_pokemon.raichu && will_pokemon 
+    && will_pokemon.pikachu && will_pokemon.pikachu.friend 
+    && will_pokemon.pikachu.friend.charizard) {
+        console.log('fight!')
+    } else {
+        console.log('walk away...')
+    }
+
+if (andrei_pokemon?.raichu && will_pokemon?.pikachu?.friend?.charizard) {
+      console.log('fight!')
+  } else {
+      console.log('walk away...')
+  }
+  
+// Exercise 4: What do these each output?
+console.log(false ?? 'hellooo')             // false
+console.log(null ?? 'hellooo')              // hellooo
+console.log(null || 'hellooo')              // hellooo
+console.log((false || null) ?? 'hellooo')   // hellooo
+console.log(null ?? (false || 'hellooo'))   // hellooo
+
+//! replaceAll()
+const newStr = 'js is the best';
+const repl = newStr.replaceAll('best', 'good');
+console.log(newStr, repl);
+// js is the best js is the good
