@@ -686,3 +686,136 @@ let objN3 = {
 const str = Object.entries(objN3).map((value) => value.join(" ")).join(' ');
 console.log('str: ', str);
 // str:  my name is Rudolf the raindeer
+
+// TODO: flat();
+const arrNew2 = [1,[2,3],[4,5]];
+arrNew2.flat(); // return no nested array
+// [1,2,3,4,5]
+
+// .flat(2) // nested array layers
+
+//! flatMap()
+// flat and map
+
+//! trimStart()
+//! trimEnd()
+// no blank spaces
+
+//! fromEntries
+let userProfiles = [['Tom', 23], ['Lander', 40], ['hansen', 34]]
+const userProf = Object.fromEntries(userProfiles);
+// opposite
+const userProfEnt = Object.entries(userProf);
+
+console.log('userProf: ', userProf);
+// userProf:  {Tom: 23, Lander: 40, hansen: 34}
+console.log('userProfEntries: ', userProfEnt);
+// userProfEntries:  (3) [Array(2), Array(2), Array(2)]
+// [['Tom', 23], ['Lander', 40], ['hansen', 34]]
+
+//! try-catch
+try {
+  4+5
+} catch (error) {
+  // if any error
+  console.log(error);
+}
+
+// 9
+
+try {
+  joe + 'hi'
+} catch (error) {
+  // if any error
+  console.log(error);
+}
+//! ReferenceError: joe is not defined
+
+//todo: Solve the below questions:
+
+// #1 Turn this array into a new array: [1,2,3,[4],[5]]. Bonus if you can do it on one line
+const array2 = [[1],[2],[3],[[[4]]],[[[5]]]]
+// array2.flat(2);
+console.log('flat 3: ', array2.flat(3));
+// flat 3:  (5) [1, 2, 3, 4, 5]
+
+// #2 Turn this array into a new array: [ 'Hello young grasshopper!', 'you are', 'learning fast!' ]
+const greeting2 = [["Hello", "young", "grasshopper!"], ["you", "are"], ["learning", "fast!"]];
+
+console.log('flatMap: ', greeting2.flatMap(str => str.join(' ')));
+// (3) ['Hello young grasshopper!', 'you are', 'learning fast!']
+
+//#3 Turn the greeting array above into a string: 'Hello young grasshopper you are learning fast!'
+console.log('flatMap2: ', greeting2.flatMap(str => str.join(' ')).join(' '));
+// flatMap2:  Hello young grasshopper! you are learning fast!
+
+//#4 Turn the trapped 3 number into: [3]
+const trapped = [[[[[[[[[[[[[[[[[[[[[[[[[[3]]]]]]]]]]]]]]]]]]]]]]]]]];
+console.log('Infinity: ', trapped.flat(Infinity) );
+// Infinity:  [3]
+
+//#5 Clean up this email to have no whitespaces. Make the answer be in a single line (return a new string):
+const userEmail3 = '     cannotfillemailformcorrectly@gmail.com   '
+console.log('trimmed: ', userEmail3.trimStart().trimEnd());
+// cannotfillemailformcorrectly@gmail.com
+
+//#6 Turn the below users (value is their ID number) into an array: [ [ 'user1', 18273 ], [ 'user2', 92833 ], [ 'user3', 90315 ] ]
+const users = { user1: 18273, user2: 92833, user3: 90315 }
+const userArray = Object.entries(users);
+console.log('userArray: ', userArray);
+//* userArray:  
+// 0:(2) ['user1', 18273]
+// 1:(2) ['user2', 92833]
+// 2:(2) ['user3', 90315]
+
+//#7 change the output array of the above to have the user's IDs multiplied by 2 -- Should output:[ [ 'user1', 36546 ], [ 'user2', 185666 ], [ 'user3', 180630 ] ]
+const updateUsers = userArray.map(user => [user[0], user[1] * 2]);
+console.log('updateUsers: ', updateUsers);
+// 0:(2) ['user1', 36546]
+// 1:(2) ['user2', 185666]
+// 2:(2) ['user3', 180630]
+
+//#8 change the output array of question #7 back into an object with all the users IDs updated to their new version. Should output: { user1: 36546, user2: 185666, user3: 180630 }
+const userBack = Object.fromEntries(updateUsers);
+console.log('userBack: ', userBack);
+// userBack:  {user1: 36546, user2: 185666, user3: 180630}
+
+
+//TODO: loops
+const basket = ['apples', 'oranges', 'grapes'];
+
+basket.forEach(item => {
+  console.log('item: ', item);
+})
+
+//! for-of
+// combined for and forEach
+// iterating arrays and strings
+for(item of basket) {
+  console.log(item);
+}
+
+for(item of 'basket str') {
+  console.log(item);
+}
+
+//! for-in
+// works with Objects, object properties, 
+// enumerating - objects, NOT iterable
+const detailedBasket = {
+  apples: 5,
+  oranges: 10,
+  grapes: 1000
+}
+
+for (item in detailedBasket) {
+  console.log('detailed: ', item);
+}
+
+// basket is like:
+basket2 = {
+  0: apples,
+  1: orange,
+  2: grapes
+}
+
