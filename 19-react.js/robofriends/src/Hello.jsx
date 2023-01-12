@@ -1,6 +1,16 @@
 import React, {Component} from "react";
 import './Hello.css';
 
+const Hello = (props) => {
+  return (
+    <div className="f1 tc">
+      <h1>Hello</h1>
+      <p>Welcome to React</p>
+      <p>{props.greeting}</p>
+    </div>
+  )
+}
+/*
 class Hello extends Component {
   render() {
     return (
@@ -12,7 +22,7 @@ class Hello extends Component {
     )
   }
 }
-
+*/
 export default Hello;
 
 // .f1 font-size:3rem
