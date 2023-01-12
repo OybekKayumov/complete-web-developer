@@ -1080,3 +1080,43 @@ console.log('3');
 // })
 
 //TODO Modules
+// inline script 
+{/* <script></script> */}
+
+// global namespace
+// pollution 
+
+// script tags
+{/* <script src="script.js"></script> */}
+
+// dependency resolution
+// add/load scripts in proper order 
+
+//IIFE 
+(function () {
+  
+})() //! run this fn
+
+// browserify
+// common js
+//js1
+module.export = function add(a, b) {
+  return a + b;
+}
+//js2
+const add = require('./js1');
+
+//
+// export default add
+// import {add} from './js1'
+
+// webpack and ES6 use in browsers
+
+// webpack
+module.exports = {
+  entry: './app/main.js',
+  output: {
+    path: './dist',
+    filename: 'bundle.js'
+  }
+}
