@@ -1,31 +1,19 @@
-// import React, { Component} from 'react';
+import React, { Component} from 'react';
 import Hello from './components/Hello';
-import './App.css';
 import Card from './components/Card';
-import { robots } from './components/robots';
 import CardList from './components/CardList';
+import { robots } from './components/robots';
+import './App.css';
+import SearchBox from './components/SearchBox';
 
 const App = () => {  
   return (
-    <div className="App">
+    <div className="App tc">
+      <h1>RoboFriends</h1>
+      <SearchBox />
       <CardList robots={robots} />
     </div>
   );
-
 }
-
-/*
-class App extends Component{
-  render () {
-    return (
-      <div className="App">
-        <Card />
-      </div>
-    );
-  }
-}
-*/
 
 export default App;
-
-{/* <Hello greeting={'Hello' + ' React Ninja'} /> */}
