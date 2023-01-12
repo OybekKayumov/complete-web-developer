@@ -17,10 +17,6 @@ import SearchBox from './components/SearchBox';
 // }
 
 //TODO: STATE
-// const state = {
-//   robots: robots,
-//   searchField: ''
-// }
 class App extends Component{
   constructor() {
     super()
@@ -32,21 +28,19 @@ class App extends Component{
 
   onSearchChange= (e) => { // use arrow fn, no this keyword, no error
     this.setState({ searchField: e.target.value})
-    console.log('event: ', e.target.value);
-    // "this" "e" happened in "input" in "SearchBox" class 
-    // and input doesn't have state.robots
-    const filteredRobot = this.state.robots.filter(robot => {
-      return robot.name.toLowerCase().includes(this.state.searchField.toLowerCase())
-    })
-    console.log('filteredRobot: ', filteredRobot);
+    
   }
 
   render () {
+    const filteredRobot = this.state.robots.filter(robot => {
+      return robot.name.toLowerCase().includes(this.state.searchField.toLowerCase())
+    })
+
     return (
       <div className="App tc">
         <h1>RoboFriends</h1>
         <SearchBox searchChange={this.onSearchChange} />
-        <CardList robots={this.state.robots} />
+        <CardList robots={filteredRobot} />
       </div>
     );
   }
