@@ -30,8 +30,15 @@ class App extends Component{
     }
   }
 
-  onSearchChange(e) {
+  onSearchChange= (e) => { // use arrow fn, no this keyword, no error
+    this.setState({ searchField: e.target.value})
     console.log('event: ', e.target.value);
+    // "this" "e" happened in "input" in "SearchBox" class 
+    // and input doesn't have state.robots
+    const filteredRobot = this.state.robots.filter(robot => {
+      return robot.name.toLowerCase().includes(this.state.searchField.toLowerCase())
+    })
+    console.log('filteredRobot: ', filteredRobot);
   }
 
   render () {
