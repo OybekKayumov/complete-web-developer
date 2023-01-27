@@ -13,19 +13,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">    
-    <div id="timer">00:00:00:</div>
+  <div class="container">
+    <div id="add-task-container">
+      <input type="text" placeholder="Enter Task" id="input-task">
 
-    <div class="buttons">
-      <button id="startStopBtn">
-        <i class="fa-solid fa-play" id="play"></i>        
-      </button>
-
-      <button id="resetBtn">
-        <i class="fa-solid fa-arrow-rotate-left" id="reset"></i>        
+      <button id="add-task">
+        <i class="fa-solid fa-plus"></i>
       </button>
     </div>
   </div>
+
+  <div id="task-container"></div>
 
   <script src="project.js"></script>
 </body>
