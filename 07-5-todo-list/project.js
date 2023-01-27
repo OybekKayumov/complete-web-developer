@@ -28,4 +28,13 @@ addTask.addEventListener('click', function () {
 
   inputTask.value = "";
   
+  checkBtn.addEventListener('click', function () {
+    checkBtn.parentElement.style.textDecoration = 'line-through';
+  })
+
+  deleteBtn.addEventListener('click', function (e) {
+    let target = e.target;
+
+    target.parentElement.parentElement.remove();
+  })
 })
