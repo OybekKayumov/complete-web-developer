@@ -53,13 +53,18 @@ class App extends Component{
 
     console.log('3- render');
 
-    return (
-      <div className="App tc">
-        <h1 className='f1'>RoboFriends</h1>
-        <SearchBox searchChange={this.onSearchChange} />
-        <CardList robots={filteredRobot} />
-      </div>
-    );
+    // loading
+    if (this.state.robots.length === 0) {
+      return <h1>Loading...</h1>
+    } else {
+        return (
+          <div className="App tc">
+            <h1 className='f1'>RoboFriends</h1>
+            <SearchBox searchChange={this.onSearchChange} />
+            <CardList robots={filteredRobot} />
+          </div>
+        );
+    }
   }
 }
 
