@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import Hello from './components/Hello';
 import Card from './components/Card';
 import CardList from './components/CardList';
-import { robots } from './components/robots';
+// import { robots } from './components/robots';
 import './App.css';
 import SearchBox from './components/SearchBox';
 
@@ -30,7 +30,14 @@ class App extends Component{
 
   // lifecycle
   componentDidMount() {
-    this.setState({ robots: robots })
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => {
+        return response.json();
+      })
+      .then(users => {
+        this.setState({ robots: users})
+      })
+    // this.setState({ robots: robots })
     console.log('2- componentDidMount');
   }
 
@@ -60,6 +67,7 @@ export default App;
 
 // robots: robots,
 
+// https://reactjs.org/docs/react-component.html
 // ! lifecycle: renders again
 // 1- constructor
 // 3- render
