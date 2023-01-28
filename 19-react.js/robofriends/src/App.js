@@ -5,6 +5,7 @@ import CardList from './components/CardList';
 // import { robots } from './components/robots';
 import './App.css';
 import SearchBox from './components/SearchBox';
+import Scroll from './components/Scroll';
 
 // const App = () => {  
 //   return (
@@ -61,7 +62,9 @@ class App extends Component{
           <div className="App tc">
             <h1 className='f1'>RoboFriends</h1>
             <SearchBox searchChange={this.onSearchChange} />
-            <CardList robots={filteredRobot} />
+            <Scroll>
+              <CardList robots={filteredRobot} />
+            </Scroll>
           </div>
         );
     }
