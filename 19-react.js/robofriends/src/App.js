@@ -48,6 +48,9 @@ class App extends Component{
   }
 
   render () {
+    // destructuring
+    const { robots, searchField} = this.state;
+
     const filteredRobot = this.state.robots.filter(robot => {
       return robot.name.toLowerCase().includes(this.state.searchField.toLowerCase())
     })
