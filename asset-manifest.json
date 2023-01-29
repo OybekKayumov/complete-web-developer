@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/OybekKayumov/complete-web-developer/tree/main/19-react.js/robofriends/static/css/main.a0156f23.css",
+    "main.js": "/OybekKayumov/complete-web-developer/tree/main/19-react.js/robofriends/static/js/main.a95cf5a0.js",
+    "static/media/SEGA.woff": "/OybekKayumov/complete-web-developer/tree/main/19-react.js/robofriends/static/media/SEGA.47b4bfa94ef243af4a5b.woff",
+    "index.html": "/OybekKayumov/complete-web-developer/tree/main/19-react.js/robofriends/index.html",
+    "main.a0156f23.css.map": "/OybekKayumov/complete-web-developer/tree/main/19-react.js/robofriends/static/css/main.a0156f23.css.map",
+    "main.a95cf5a0.js.map": "/OybekKayumov/complete-web-developer/tree/main/19-react.js/robofriends/static/js/main.a95cf5a0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0156f23.css",
+    "static/js/main.a95cf5a0.js"
+  ]
+}
