@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+</head>
+<body>
+  <!-- span is inline element -->
+  <span></span> 
+  <div>
+    <header>
+      <h1>Register</h1>
+    </header>
+    <nav>
+      <a href="google.com"></a>
+    </nav>
+
+    <!-- action.php is the script that will process on server -->
+    <!-- <form action="action.php" method="GET">   -->
+    <form action="action.php" method="post">  
+      <span>First Name: </span><input type="text" name="fname" alt="fname" placeholder="first name" > <br>
+      Last Name: <input type="text" name="lname" alt="lname" placeholder="last name" > <br>
+      Email: <input type="email" name="email" alt="email" placeholder="email" required > <br>
+      Password: <input type="password" name="pwd" alt="password" placeholder="password" minlength="6" required > <br>
+      Birthday: <input type="date" name="date" placeholder="date"> <br>
+      Gender: <br>
+      <input type="radio" name="gender" value="male" id="" placeholder="male">Male <br>
+      <input type="radio" name="gender" value="female" id="" placeholder="female" >Female <br>
+      
+      Pets: <br>
+      <input type="checkbox" name="cat" id="" placeholder="cat"> Cats<br>
+      <input type="checkbox" name="dog" id="" placeholder="dog"> Dog<br>
+      Cars: <br>
+      <select name="cars" id="" title="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select><br>
+      
+      <input type="submit" value="Register!">
+      <input type="reset" value="Reset">      
+    </form>
+  </div>
+  <footer>
+    <p>website made with love</p>
+  </footer>
+</body>
+</html>
+
+<!-- http://127.0.0.1:8080/04-HTML5/action.php?
+  fname=john
+  &lname=doe
+  &email=john%40yahoo.com
+  &pwd=123456
+  &date=2023-01-03
+  &gender=male
+  &cat=on
+  &dog=on
+  &cars=audi
+ -->
