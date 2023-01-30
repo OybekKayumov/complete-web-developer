@@ -52,7 +52,7 @@ const urls2 = [
 Promise.all(urls2.map(
   url => fetch(url).then(people => people.json())
 )).then(arr => {
-  throw Error;
+  // throw Error;
   console.log('1: ', arr[0]);
   console.log('2: ', arr[1]);
   console.log('3: ', arr[2]);
@@ -64,3 +64,47 @@ Promise.all(urls2.map(
 //* output always: extra
 
 //TODO:for await of
+
+const urls1 = [
+  "https://jsonplaceholder.typicode.com/users",
+  "https://jsonplaceholder.typicode.com/posts",
+  "https://jsonplaceholder.typicode.com/albums",
+];
+
+const getData1 = async function () {
+  try {
+    const [users, posts, albums] = await Promise.all(
+      urls.map(async function(url) {
+        const resp = await fetch(url)
+        return resp.json()
+      }),
+    );
+    console.log("users", users);
+    console.log("posta", posts);
+    console.log("albums", albums);
+  } catch (error) {
+    console.log('ooops', error);
+  }  
+} 
+
+//
+const loopUrls = url => {
+  for (url of urls1) {
+    console.log(': ', url);
+  }
+}
+
+loopUrls()
+
+// 
+const getData11 = async function () {
+  const arrOfPromises = urls1.map(url => fetch(url));
+
+  for await ( let request of arrOfPromises) {  // !
+    const data = await request.json();
+    console.log('data: ', data);
+  }
+}
+
+getData11()
+// * output users, posts, albums
