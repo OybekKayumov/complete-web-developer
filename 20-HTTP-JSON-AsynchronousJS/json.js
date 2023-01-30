@@ -16,3 +16,13 @@ let myJSON = JSON.stringify(obj)
 // on web-server JSON.parse(obj) 
 // data will be processed and return to user
 // on user JSON.parse() with new data
+
+//! AJAX
+// read from a web-server after page has loaded and update a page without reloading the page. and send data in the background while user is interacting with web-site
+// AJAX is technology - a method of combining pieces together to achieve this
+// and allow web-pages and web-applications to change content dynamically
+
+// old way - XML
+// jQuery
+// new way - fetch
+
