@@ -6,11 +6,13 @@
 
 // JSON is text, written with JavaScript object notation
 
+/*
 JSON.parse()
 let obj = JSON.parse('{"name":"John", "age":30, "city": "New York"}')
 
 JSON.stringify()
 let myJSON = JSON.stringify(obj)
+*/
 
 // JSON.stringify() will be sent over HTTP to the web-server
 // on web-server JSON.parse(obj) 
@@ -47,10 +49,12 @@ let myJSON = JSON.stringify(obj)
 
 //! callbacks and many nested functions, hard to read a code
 // Promise example
-movePlayer(100, 'Left')
+/*
+moviePlayer(100, 'Left')
   .then(() =>movePlayer(400, 'Left'))
   .then(() =>movePlayer(10, 'Right'))
   .then(() =>movePlayer(330, 'Left'))
+*/
 
 // todo
 const promise = new Promise((resolve, reject) => {
@@ -63,3 +67,41 @@ const promise = new Promise((resolve, reject) => {
 
 promise.then(result => console.log('result: ', result))
        .catch(() => console.log('error: ')) 
+// result:  stuff worked
+
+//
+const promise2 = new Promise((res, reject) => {
+  setTimeout(res, 100, 'Hi')
+})
+
+const promise3 = new Promise((res, reject) => {
+  setTimeout(res, 1000, 'Hey')
+})
+
+const promise4 = new Promise((res, reject) => {
+  setTimeout(res, 3000, 'Hello')
+})
+
+Promise.all([promise, promise2, promise3, promise4])
+  .then(values => {
+    console.log('values: ', values);
+  })
+
+// values:  [ 'stuff worked', 'Hi', 'Hey', 'Hello' ]
+
+// todo
+const urls = [
+  'https://jsonplaceholder.typicode.com/users',
+  'https://jsonplaceholder.typicode.com/posts',
+  'https://jsonplaceholder.typicode.com/albums',
+]
+
+Promise.all(urls.map(url => {
+  return fetch(url).then(resp => resp.json())
+})).then(results => {
+  console.log(': ', results[0])
+  console.log(': ', results[1])
+  console.log(': ', results[2])
+}).catch(() => console.log('error: ' ))
+
+// output
