@@ -108,3 +108,22 @@ const getData11 = async function () {
 
 getData11()
 // * output users, posts, albums
+
+
+// TODO: Promise.allSettled
+const promOne = new Promise((resolve, reject) => setTimeout(resolve, 3000))
+const promTwo = new Promise((resolve, reject) => setTimeout(reject, 3000))
+
+/*
+Promise.all([promOne, promTwo]).then(data => console.log('data: ', data))
+//! error
+      .catch(e => console.log('smth failed', e ))
+//* smth failed undefined
+*/
+
+Promise.allSettled([promOne, promTwo]).then(data => console.log('data: ', data))
+      .catch(e => console.log('smth failed', e ))
+// data:  [
+//   { status: 'fulfilled', value: undefined },
+//   { status: 'rejected', reason: undefined }
+// ]
