@@ -25,4 +25,41 @@ let myJSON = JSON.stringify(obj)
 // old way - XML
 // jQuery
 // new way - fetch
+  // fetch get, post, put, delete
 
+// 1 user login
+    // send request to server
+    // server sends response back to page
+// 2 response is read by JS and user is able to login
+    // at the same time only updating a small portion of the window
+
+//!
+// fetch(url) returns a JSON object
+// get Promise
+// .then (res.json), also get Promise
+// .then (data)   
+
+
+// Promise is an object that may produce a single value some time in the future
+// either a resolved value or a reason that it's not resolved(rejected)
+// 3 possible states of promises are:
+  // fulfilled, rejected, pending
+
+//! callbacks and many nested functions, hard to read a code
+// Promise example
+movePlayer(100, 'Left')
+  .then(() =>movePlayer(400, 'Left'))
+  .then(() =>movePlayer(10, 'Right'))
+  .then(() =>movePlayer(330, 'Left'))
+
+// todo
+const promise = new Promise((resolve, reject) => {
+  if (true) {
+    resolve('stuff worked')
+  } else {
+    reject('error, it broke')
+  }
+})
+
+promise.then(result => console.log('result: ', result))
+       .catch(() => console.log('error: ')) 
