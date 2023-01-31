@@ -30,7 +30,18 @@ class App extends Component {
     const image = document.getElementById('inputimage')
     const width = Number(image.width)
     const height = Number(image.height)
-    console.log(width, height);
+    // console.log(width, height);
+
+    return {
+      left: clarifyFace.left_col * width,
+      topRow: clarifyFace.top_row * height,
+      rightCol: width * (clarifyFace.right_col * width),
+      bottomRow: height * (clarifyFace.bottom_col * height),
+    }
+  }
+
+  displayFaceBox = box => {
+    this.setState({ box: box})
   }
 
   onInputChange = (e) => {
@@ -44,7 +55,7 @@ class App extends Component {
     app.models.predict(
       Clarifai.FACE_DETECT_MODEL,
       this.state.input)
-    .then(response =>  this.calculateFaceLocation(response))
+    .then(response =>  this.displayFaceBox(this.calculateFaceLocation(response)))
     .catch(err => console.log(err))
   }
 
@@ -52,7 +63,7 @@ class App extends Component {
     return (
       <div className="App">
         <Particles />
-
+ 
         <Navigation />
         <Logo />
         <Rank />
@@ -61,6 +72,7 @@ class App extends Component {
           onBtnSubmit={this.onBtnSubmit}
         />
         <FaceRecognition 
+          box={this.state.box}
           imageUrl={this.state.imageUrl}
         /> 
       </div>
