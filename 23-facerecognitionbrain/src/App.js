@@ -7,6 +7,7 @@ import './App.css';
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { Component, useCallback } from "react";
+import Clarifai from 'clarifai'
 
 // function App() {
 class App extends Component {
