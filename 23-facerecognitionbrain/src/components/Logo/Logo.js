@@ -6,7 +6,7 @@ import brain from '../../img/brain.png'
 const Logo = () => {
   return (
     <Tilt>
-      <div style={{ height: '150px', width: '150px', backgroundColor: 'darkgreen' }}>
+      <div style={{ height: '150px', width: '150px', backgroundColor: 'inherit' }}>
       <img style={{paddingTop: '25px'}} src={brain} alt="brain" />
       </div>
     </Tilt>
