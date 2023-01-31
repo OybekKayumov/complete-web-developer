@@ -7,23 +7,45 @@ import './App.css';
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { Component, useCallback } from "react";
-import Clarifai from 'clarifai'
+import Clarifai from 'clarifai';
+
+const app = new Clarifai.App({
+  apiKey: '53e1df302c079b3db8a0a36033ed2d15'
+})
 
 // function App() {
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      input: ''
+      input: '',
+      imageUrl: '',
+      box: {},
     }
+  }
+
+  calculateFaceLocation = data => {
+    const clarifyFace= data.outputs[0].data.regions[0].region_infp.bounding_box;
+
+    const image = document.getElementById('inputimage')
+    const width = Number(image.width)
+    const height = Number(image.height)
+    console.log(width, height);
   }
 
   onInputChange = (e) => {
     console.log('e: ', e.target.value);
+    this.setState({input: e.target.value})
   }
 
   onBtnSubmit = () => {
     console.log('click: ');
+    this.setState({imageUrl: this.state.input})
+    app.models.predict(
+      Clarifai.FACE_DETECT_MODEL,
+      this.state.input)
+    .then(response =>  this.calculateFaceLocation(response))
+    .catch(err => console.log(err))
   }
 
   render() {
@@ -38,9 +60,13 @@ class App extends Component {
           onInputChange={this.onInputChange} 
           onBtnSubmit={this.onBtnSubmit}
         />
-        <FaceRecognition /> 
+        <FaceRecognition 
+          imageUrl={this.state.imageUrl}
+        /> 
       </div>
     );
   }
 }
 export default App;
+
+// "https://samples.clarifai.com/face-det.jpg"
