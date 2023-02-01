@@ -8,10 +8,11 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { Component, useCallback } from "react";
 import Clarifai from 'clarifai';
+import SignIn from './Signin/SignIn';
 
-const app = new Clarifai.App({
-  apiKey: '53e1df302c079b3db8a0a36033ed2d15'
-})
+// const app = new Clarifai.App({
+//   apiKey: '53e1df302c079b3db8a0a36033ed2d15'
+// })
 
 // function App() {
 class App extends Component {
@@ -52,11 +53,11 @@ class App extends Component {
   onBtnSubmit = () => {
     console.log('click: ');
     this.setState({imageUrl: this.state.input})
-    app.models.predict(
-      Clarifai.FACE_DETECT_MODEL,
-      this.state.input)
-    .then(response =>  this.displayFaceBox(this.calculateFaceLocation(response)))
-    .catch(err => console.log(err))
+    // app.models.predict(
+    //   Clarifai.FACE_DETECT_MODEL,
+    //   this.state.input)
+    // .then(response =>  this.displayFaceBox(this.calculateFaceLocation(response)))
+    // .catch(err => console.log(err))
   }
 
   render() {
@@ -65,6 +66,7 @@ class App extends Component {
         <Particles />
  
         <Navigation />
+        <SignIn />
         <Logo />
         <Rank />
         <ImageLinkForm 
