@@ -33,3 +33,27 @@ const server = http.createServer((request, response) => {
 })
 
 server.listen(3000);
+
+// 3
+const express = require('express');
+
+const app = express();
+
+app.get('/signin', (req, res) => {
+  res.send("<h1>hello</h1>")
+})
+app.listen(3000);
+
+// 4
+const express = require('express');
+
+const app = express();
+
+app.get('/', (req, res) => {
+  const user = {
+    name: 'Sally',
+    hobby: 'soccer',
+  }
+  res.send(user)
+})
+app.listen(3000);
