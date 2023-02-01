@@ -61,8 +61,8 @@ class App extends Component {
     // .catch(err => console.log(err))
   }
 
-  onRouteChanges = () => {
-    this.setState({route: 'home'})
+  onRouteChanges = (route) => {
+    this.setState({route: route})
   }
 
   render() {

@@ -7,7 +7,7 @@ const Navigation = ({ onRouteChanges }) => {
       justifyContent: 'flex-end'
     }}>
       <p
-      onClick={onRouteChanges}
+      onClick={() => onRouteChanges('signin')}
         className='f3 link dim black  underline pa3 pointer'
       >
         Sign Out
