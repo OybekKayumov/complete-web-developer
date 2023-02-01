@@ -9,6 +9,7 @@ import { loadFull } from "tsparticles";
 import { Component, useCallback } from "react";
 import Clarifai from 'clarifai';
 import SignIn from './Signin/SignIn';
+import Register from './components/Register/Register';
 
 // const app = new Clarifai.App({
 //   apiKey: '53e1df302c079b3db8a0a36033ed2d15'
