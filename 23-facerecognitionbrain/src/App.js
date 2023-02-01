@@ -72,20 +72,24 @@ class App extends Component {
         <Particles />
  
         <Navigation  onRouteChanges={this.onRouteChanges}/>
-        { this.state.route === 'signin' 
-          ? <SignIn onRouteChanges={this.onRouteChanges}/>
-          : <>
-            <Logo />
-            <Rank />
-            <ImageLinkForm 
-            onInputChange={this.onInputChange} 
-            onBtnSubmit={this.onBtnSubmit}
-            />
-            <FaceRecognition 
-            box={this.state.box}
-            imageUrl={this.state.imageUrl}
-            /> 
-          </>
+        { this.state.route === 'home' 
+          ? <>
+              <Logo />
+              <Rank />
+              <ImageLinkForm 
+              onInputChange={this.onInputChange} 
+              onBtnSubmit={this.onBtnSubmit}
+              />
+              <FaceRecognition 
+              box={this.state.box}
+              imageUrl={this.state.imageUrl}
+              /> 
+            </>
+          : (
+            this.state.route === 'signin' 
+              ? <SignIn onRouteChanges={this.onRouteChanges}/>
+              : <Register onRouteChanges={this.onRouteChanges}/>
+          )
         }
       </div>
     );
