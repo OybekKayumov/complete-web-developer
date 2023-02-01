@@ -24,6 +24,7 @@ class App extends Component {
       imageUrl: '',
       box: {},
       route: 'signin',
+      isSignedIn: false,
     }
   }
 
@@ -63,15 +64,24 @@ class App extends Component {
   }
 
   onRouteChanges = (route) => {
+    if (route === 'signout') {
+      this.setState({ isSignedIn: false})
+    } else {
+      this.setState({ isSignedIn: true})
+    }
     this.setState({route: route})
   }
 
   render() {
+    { isSignedIn, imageUrl, route, box } = this.state;
     return (
       <div className="App">
         <Particles />
  
-        <Navigation  onRouteChanges={this.onRouteChanges}/>
+        <Navigation 
+          isSignedIn={this.state.isSignedIn}
+          onRouteChanges={this.onRouteChanges}
+        />
         { this.state.route === 'home' 
           ? <>
               <Logo />
