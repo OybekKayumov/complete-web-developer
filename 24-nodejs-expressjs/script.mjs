@@ -11,7 +11,7 @@ console.log('a+b: ',a + b);
 */ 
 
 //todo:
-console.log(__dirname );
+// console.log(__dirname );
 
 //todo:
 // globalThis === window // true
@@ -22,7 +22,7 @@ console.log(__dirname );
 // globalThis exists in both browser and window
 
 // todo 2
-import { largeNumber } from "./script2.js";
+import { largeNumber } from "./script2.mjs";
 
 const a = largeNumber;
 const b = 5
