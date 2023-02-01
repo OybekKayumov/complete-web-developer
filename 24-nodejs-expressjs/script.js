@@ -11,7 +11,7 @@ console.log('a+b: ',a + b);
 */ 
 
 //todo:
-console.log(__dirname );
+// console.log(__dirname );
 
 //todo:
 // globalThis === window // true
@@ -25,7 +25,7 @@ console.log(__dirname );
 import { largeNumber } from "./script2.js";
 
 const a = largeNumber;
-const b = 5
+const b = 15
 
 console.log('a - b: ', a - b);
 // a - b:  351
