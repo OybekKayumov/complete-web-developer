@@ -9,15 +9,20 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 app.get('/', (req, res) => {  
-  req.query
-  req.body
-  req.headers
-  req.params
+  console.log( req.query )
+  
+  // req.body
+  // req.headers
+  // req.params
   res.send('getting root')
 })
 
 app.listen(3000);
 
+//todo: REST API query
+// console.log( req.query )
+// http://localhost:3000/?name=andrei&age=31
+// { name: 'andrei', age: '31' }
 
 // const user = {
 //   name: 'Player',
