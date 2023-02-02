@@ -8,12 +8,12 @@ const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-app.get('/', (req, res) => {  
+app.get('/:id', (req, res) => {  
   // console.log( req.query )
   
   // req.body
-  console.log( req.headers )
-  // req.params
+  // console.log( req.headers )
+  console.log( req.params )
   res.send('getting root')
 })
 
@@ -23,6 +23,12 @@ app.listen(3000);
 // console.log( req.query )
 // http://localhost:3000/?name=andrei&age=31
 // { name: 'andrei', age: '31' }
+
+//todo: REST API params
+// http://localhost:3000/1234
+// console.log( req.params )
+// { id: '1234' }
+
 
 // const user = {
 //   name: 'Player',
