@@ -9,10 +9,10 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 app.get('/', (req, res) => {  
-  console.log( req.query )
+  // console.log( req.query )
   
   // req.body
-  // req.headers
+  console.log( req.headers )
   // req.params
   res.send('getting root')
 })
