@@ -2,17 +2,14 @@ const express = require('express');
 
 const app = express();
 
+// middleware
+app.use((req, res, next) => {
+  console.log('helloo: ');
+  next();
+})
+
 app.get('/', (req, res) => {  
-  res.send('getting root')
+  res.send('testtest')
 })
-app.get('/profile', (req, res) => {  
-  res.send('getting profile')
-})
-app.post('/profile', (req, res) => {  
-  const user = {
-    name: 'Sally',
-    hobby: 'soccer'
-  }
-  res.send(user)
-})
+
 app.listen(3000);
