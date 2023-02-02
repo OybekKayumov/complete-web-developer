@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/OybekKayumov/complete-web-developer/issues"
   },
-  "homepage": "https://github.com/OybekKayumov/complete-web-developer#readme"
+  "homepage": "https://github.com/OybekKayumov/complete-web-developer#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1"
+  }
 }
