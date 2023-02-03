@@ -22,6 +22,15 @@ class SignIn extends Component {   // ({ onRouteChanges })
   // fetch data from input
   onSubmitSignIn = () => {
     console.log(this.state);
+    // send to server input data, (POST)
+    fetch('http://localhost:3000/signin', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: this.state.signInEmail,
+        password: this.state.signInPwd,
+      })
+    })
     this.props.onRouteChanges('home');
   }
 
