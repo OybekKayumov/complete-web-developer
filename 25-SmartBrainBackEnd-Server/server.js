@@ -62,13 +62,17 @@ app.post('/register', (req, res) => {
 // profile
 app.get('/profile/:id', (req, res) => {
   const { id } = req.params;
+  let found = false;
+
   database.users.forEach(user => {
     if (user.id === id) {
-      res.json(user)
-    } else {
-      res.status(404).json('no such user')
-    }
+      found = true;
+      return res.json(user)
+    } 
   })
+  if (!found) {
+    res.status(404).json('not found...')
+  }
 })
 
 app.listen(3000, () => {
