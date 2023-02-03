@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
 
 class SignIn extends Component {   // ({ onRouteChanges })
+  
+  // to get data from input
+  onEmailChange = (e) => {
+    this.setState({signInEmail: e.target.value})
+  }
+
+  onPasswordChange = (e) => {
+    this.setState({signInPwd: e.target.value})
+  }
 
   render () {
     // destructuring
     const { onRouteChanges } = this.props;
-    
+
     return (
       <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">    
         <main className="pa4 black-80">
