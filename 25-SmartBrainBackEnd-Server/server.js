@@ -38,9 +38,18 @@ app.get('/', (req, res) => {
   res.send(database.users)
 })
 
+// sign-in
 app.post('/signin', (req, res) => {
-  // res.send('signing')
-  // res.json('signing')
+
+  // Load hash from your password DB, check if pwd correct.
+  bcrypt.compare("apples", '$2a$10$xAY6i0l/3iZIajZ66BI9b.NjM50q2JZuXlaBEzRfejUvXocOqeGsi', function(err, res) {
+    // res == true
+    console.log('first guess', res)
+  });
+  bcrypt.compare("veggies", '$2a$10$xAY6i0l/3iZIajZ66BI9b.NjM50q2JZuXlaBEzRfejUvXocOqeGsi', function(err, res) {
+    // res = false
+    console.log('second guess', res)
+  });
 
   if (req.body.email === database.users[0].email 
       && req.body.password === database.users[0].password 
@@ -55,10 +64,10 @@ app.post('/signin', (req, res) => {
 app.post('/register', (req, res) => {
   const { email, name, password } = req.body;
 
-  bcrypt.hash(password, null, null, function(err, hash) {
-    // Store hash in your password DB.
-    console.log(hash)
-  });
+  // bcrypt.hash(password, null, null, function(err, hash) {
+  //   // Store hash in your password DB.
+  //   console.log(hash)
+  // });
 
   database.users.push(
     {
@@ -137,6 +146,10 @@ app.listen(3000, () => {
 */
 
 
-// bcrypt
+//! bcrypt
 // hash password
 // $2a$10$xAY6i0l/3iZIajZ66BI9b.NjM50q2JZuXlaBEzRfejUvXocOqeGsi
+
+//! compare pwd input and database, if it is much, return true
+// first guess true
+// second guess false
