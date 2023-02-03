@@ -26,7 +26,8 @@ const database = {
 }
 
 app.get('/', (req, res) => {
-  res.send('this is working')
+  // res.send('this is working')
+  res.send(database.users)
 })
 
 app.post('/signin', (req, res) => {
@@ -56,6 +57,18 @@ app.post('/register', (req, res) => {
   )
 
   res.json(database.users[database.users.length-1])
+})
+
+// profile
+app.get('/profile/:id', (req, res) => {
+  const { id } = req.params;
+  database.users.forEach(user => {
+    if (user.id === id) {
+      res.json(user)
+    } else {
+      res.status(404).json('no such user')
+    }
+  })
 })
 
 app.listen(3000, () => {
