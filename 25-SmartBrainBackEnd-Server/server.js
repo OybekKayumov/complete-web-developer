@@ -150,6 +150,6 @@ app.listen(3000, () => {
 // hash password
 // $2a$10$xAY6i0l/3iZIajZ66BI9b.NjM50q2JZuXlaBEzRfejUvXocOqeGsi
 
-//! compare pwd input and database, if it is much, return true
+//! compare pwd input(sent) and in database, if it is much, return true
 // first guess true
 // second guess false
