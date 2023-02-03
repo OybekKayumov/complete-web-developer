@@ -28,7 +28,7 @@ class Register extends Component { // ({ onRouteChanges })
   onSubmitSignIn = () => {
     console.log(this.state);
     // send to server input data, (POST)
-    fetch('http://localhost:3000/signin', {
+    fetch('http://localhost:3000/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -40,6 +40,7 @@ class Register extends Component { // ({ onRouteChanges })
       .then(response => response.json())
       .then(user => {
         if (user) {
+          this.props.loadUser(user);
           this.props.onRouteChanges('home');
         }
       })

@@ -25,6 +25,13 @@ class App extends Component {
       box: {},
       route: 'signin',
       isSignedIn: false,
+      user: {
+        id: '',
+        name: '',
+        email: '',
+        entries: 0,
+        joined: ''
+      }
     }
   }
 
@@ -34,6 +41,16 @@ class App extends Component {
   //     .then(response => response.json())
   //     .then(data => console.log(data))
   // }
+
+  loadUser = (data) => {
+    this.setState({user: {
+      id: data.id,
+      name: data.name,
+      email: data.email,
+      entries: data.entries,
+      joined: data.joined
+    }})
+  }
 
   calculateFaceLocation = data => {
     const clarifyFace= data.outputs[0].data.regions[0].region_infp.bounding_box;
@@ -105,7 +122,10 @@ class App extends Component {
           : (
             route === 'signin' 
               ? <SignIn onRouteChanges={this.onRouteChanges}/>
-              : <Register onRouteChanges={this.onRouteChanges}/>
+              : <Register 
+                  loadUser={this.loadUser}
+                  onRouteChanges={this.onRouteChanges}
+                />
           )
         }
       </div>
