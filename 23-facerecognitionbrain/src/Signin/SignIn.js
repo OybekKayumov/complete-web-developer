@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 
 class SignIn extends Component {   // ({ onRouteChanges })
+  // create a state
+  constructor(props) {
+    super(props);
+    this.state = {
+      signInEmail: '',
+      signInPwd: ''
+    }
+  }
   
   // to get data from input
   onEmailChange = (e) => {
