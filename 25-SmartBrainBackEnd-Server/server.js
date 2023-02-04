@@ -90,10 +90,12 @@ app.post('/register', (req, res) => {
      email: email,
      joined: new Date()
 //  }).then(console.log( ))
- }).then(response => {
+ }).then(user => {
   //  res.json(database.users[database.users.length-1])   
-   res.json(response)
+   res.json(user[0])
  })
+//  .catch(err => res.status(400).json(err))  //! shows real error, which is not good
+ .catch(err => res.status(400).json('unable to register...'))
 })
 
 // profile
