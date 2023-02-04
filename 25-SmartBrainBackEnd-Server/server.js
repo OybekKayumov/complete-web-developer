@@ -6,18 +6,21 @@ const cors = require('cors');
 // knexjs import and run
 const knex = require('knex');
 
-const postgres = knex({
+const db_postgres = knex({
   client: 'pg',
   connection: {
     host : '127.0.0.1',
-    port : 3001,
+    port: 5432,   
     user : 'postgres',
-    password : '',
+    password : 'postgres15',
     database : 'smart-brain'
   }
 });
 
-console.log(postgres.select('*').from('users'));
+// console.log(postgres.select('*').from('users'));
+// db_postgres.select('*').from('users').then(data => {
+//   console.log(data);
+// })
 
 const app = express();
 app.use(bodyParser.json())
@@ -69,6 +72,7 @@ app.post('/signin', (req, res) => {
 app.post('/register', (req, res) => {
   const { email, name, password } = req.body;
 
+  /*
   database.users.push(
     {
       id: '125',
@@ -78,6 +82,12 @@ app.post('/register', (req, res) => {
       joined: new Date()
     }
   )
+  */
+ db_postgres('users').insert({
+   name: name, 
+   email: email,
+   joined: new Date()
+ }).then(console.log( ))
 
   res.json(database.users[database.users.length-1])
 })
