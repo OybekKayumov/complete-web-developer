@@ -12,7 +12,7 @@ const db_postgres = knex({
     host : '127.0.0.1',
     port: 5432,   
     user : 'postgres',
-    password : '',
+    password : 'postgres15',
     database : 'smart-brain'
   }
 });
@@ -83,13 +83,17 @@ app.post('/register', (req, res) => {
     }
   )
   */
- db_postgres('users').insert({
-   name: name, 
-   email: email,
-   joined: new Date()
- }).then(console.log( ))
-
-  res.json(database.users[database.users.length-1])
+ db_postgres('users')
+   .returning('*') 
+   .insert({
+     name: name, 
+     email: email,
+     joined: new Date()
+//  }).then(console.log( ))
+ }).then(response => {
+  //  res.json(database.users[database.users.length-1])   
+   res.json(response)
+ })
 })
 
 // profile
