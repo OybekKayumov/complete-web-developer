@@ -101,7 +101,7 @@ app.post('/register', (req, res) => {
 // profile
 app.get('/profile/:id', (req, res) => {
   const { id } = req.params;
-  let found = false;
+  // let found = false;
 
   /*
   database.users.forEach(user => {
@@ -111,13 +111,17 @@ app.get('/profile/:id', (req, res) => {
     } 
   })
   */
- db_postgres.select('*').from('users').then(user => {
-  console.log(user)
+ db_postgres.select('*').from('users').where({
+  id: id
+ })
+ .then(user => {
+  console.log(user[0])
+  res.json(user[0]) 
  })
 
-  if (!found) {
-    res.status(400).json('not found...')
-  }
+  // if (!found) {
+  //   res.status(400).json('not found...')
+  // }
 })
 
 // image
