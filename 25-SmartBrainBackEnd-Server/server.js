@@ -12,7 +12,7 @@ const db_postgres = knex({
     host : '127.0.0.1',
     port: 5432,   
     user : 'postgres',
-    password : '',
+    password : 'postgres15',
     database : 'smart-brain'
   }
 });
@@ -71,69 +71,42 @@ app.post('/signin', (req, res) => {
 // register
 app.post('/register', (req, res) => {
   const { email, name, password } = req.body;
-
-  /*
-  database.users.push(
-    {
-      id: '125',
-      name: name,
+  
+  db_postgres('users')
+    .returning('*') 
+    .insert({
+      name: name, 
       email: email,
-      entries: 0,
       joined: new Date()
-    }
-  )
-  */
- db_postgres('users')
-   .returning('*') 
-   .insert({
-     name: name, 
-     email: email,
-     joined: new Date()
-//  }).then(console.log( ))
- }).then(user => {
-  //  res.json(database.users[database.users.length-1])   
-   res.json(user[0])
- })
-//  .catch(err => res.status(400).json(err))  //! shows real error, which is not good
- .catch(err => res.status(400).json('unable to register...'))
+  }).then(user => {
+    res.json(user[0])
+  })
+  .catch(err => res.status(400).json('unable to register...'))
 })
 
 // profile
 app.get('/profile/:id', (req, res) => {
   const { id } = req.params;
-  // let found = false;
-
-  /*
-  database.users.forEach(user => {
-    if (user.id === id) {
-      found = true;
-      return res.json(user)
-    } 
+  
+  db_postgres.select('*').from('users').where({
+    id: id
   })
-  */
- db_postgres.select('*').from('users').where({
-  id: id
- })
- .then(user => {
-  console.log(user)
-  if (user.length) {
-    res.json(user[0]) 
-  } else {
-    res.status(400).json('Not found')
-  }
- })
- .catch(err => res.status(400).json('error getting user...'))
-
-  // if (!found) {
-  //   res.status(400).json('not found...')
-  // }
+  .then(user => {
+    console.log(user)
+    if (user.length) {
+      res.json(user[0]) 
+    } else {
+      res.status(400).json('Not found')
+    }
+  })
+  .catch(err => res.status(400).json('error getting user...'))
 })
 
 // image
 app.put('/image', (req, res) => {
   const { id } = req.body;
+  /*
   let found = false;
-
   database.users.forEach(user => {
     if (user.id === id) {
       found = true;
@@ -144,8 +117,16 @@ app.put('/image', (req, res) => {
   if (!found) {
     res.status(400).json('not found img ...')
   }
+  */
+   db_postgres('users').where('id', '=', id)
+    .increment('entries', 1)
+    .returning('entries')
+    .then(entries => {
+      console.log(entries);
+      res.json(entries[0].entries);
+    })
+    .catch(err => res.status(400).json('unable to get entries...'))
 })
-
 
 // listen
 app.listen(3000, () => {
@@ -158,5 +139,4 @@ app.listen(3000, () => {
   /register           POST user
   /profile/:userId    GET  user
   /image              PUT  user update
-
 */
