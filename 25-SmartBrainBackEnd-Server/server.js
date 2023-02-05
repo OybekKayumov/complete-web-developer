@@ -12,7 +12,7 @@ const db_postgres = knex({
     host : '127.0.0.1',
     port: 5432,   
     user : 'postgres',
-    password : 'postgres15',
+    password : '',
     database : 'smart-brain'
   }
 });
@@ -115,9 +115,14 @@ app.get('/profile/:id', (req, res) => {
   id: id
  })
  .then(user => {
-  console.log(user[0])
-  res.json(user[0]) 
+  console.log(user)
+  if (user.length) {
+    res.json(user[0]) 
+  } else {
+    res.status(400).json('Not found')
+  }
  })
+ .catch(err => res.status(400).json('error getting user...'))
 
   // if (!found) {
   //   res.status(400).json('not found...')
