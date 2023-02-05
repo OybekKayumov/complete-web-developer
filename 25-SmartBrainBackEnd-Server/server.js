@@ -71,16 +71,31 @@ app.post('/signin', (req, res) => {
 // register
 app.post('/register', (req, res) => {
   const { email, name, password } = req.body;
-  
-  db_postgres('users')
-    .returning('*') 
-    .insert({
-      name: name, 
-      email: email,
-      joined: new Date()
-  }).then(user => {
-    res.json(user[0])
-  })
+  const hash = bcrypt.hashSync(password);
+
+  db_postgres.transaction(trx => {
+    trx.insert({
+      hash: hash,
+      email: email
+    })
+    
+    .into('login')
+    .returning('email')
+    .then(loginEmail => {
+      return trx('users')
+        .returning('*') 
+        .insert({
+          email: loginEmail[0],
+          name: name, 
+          joined: new Date()
+        })
+        .then(user => {
+          res.json(user[0])
+        })
+    })
+    .then(trx.commit)
+    .catch(trx.rollback)
+  })  
   .catch(err => res.status(400).json('unable to register...'))
 })
 
@@ -104,28 +119,15 @@ app.get('/profile/:id', (req, res) => {
 
 // image
 app.put('/image', (req, res) => {
-  const { id } = req.body;
-  /*
-  let found = false;
-  database.users.forEach(user => {
-    if (user.id === id) {
-      found = true;
-      user.entries++;
-      return res.json(user.entries);
-    }
-  })
-  if (!found) {
-    res.status(400).json('not found img ...')
-  }
-  */
-   db_postgres('users').where('id', '=', id)
-    .increment('entries', 1)
-    .returning('entries')
-    .then(entries => {
-      console.log(entries);
-      res.json(entries[0].entries);
-    })
-    .catch(err => res.status(400).json('unable to get entries...'))
+  const { id } = req.body;  
+    db_postgres('users').where('id', '=', id)
+      .increment('entries', 1)
+      .returning('entries')
+      .then(entries => {
+        console.log(entries);
+        res.json(entries[0].entries);
+      })
+      .catch(err => res.status(400).json('unable to get entries...'))
 })
 
 // listen
