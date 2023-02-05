@@ -26,6 +26,7 @@ const app = express();
 app.use(bodyParser.json())
 app.use(cors());
 
+/*
 const database = {
   users: [
     {
@@ -53,6 +54,7 @@ const database = {
     }
   ]
 }
+*/
 
 app.get('/', (req, res) => {
   res.send(database.users)
@@ -60,12 +62,33 @@ app.get('/', (req, res) => {
 
 // sign-in
 app.post('/signin', (req, res) => { 
+  /*
   if (req.body.email === database.users[0].email &&
       req.body.password === database.users[0].password) {
     res.json('success')
   } else {
     res.status(400).json('error logging in...')
   }
+  */
+  db_postgres('email', 'hash').from('login')
+    .where('email', '=', req.body.email)
+    .then(data => {
+      console.log(data)
+      const isValid = bcrypt.compareSync(req.body.password, data[0].hash);
+
+      if (isValid) {
+        return db_postgres.select('*').from('users')
+          .where('email', '=', req.body.email)
+          .then(user => {
+            console.log(user)
+            res.json(user[0])
+          })
+          .catch(err => res.status(400).json('unable to get user...'))
+      } else {
+        res.status(400).json('wrong vredentials');
+      }
+    })
+    .catch(err => res.status(400).json('wrong credentials...'))
 })
 
 // register
@@ -78,14 +101,13 @@ app.post('/register', (req, res) => {
       hash: hash,
       email: email
     })
-    
     .into('login')
     .returning('email')
     .then(loginEmail => {
       return trx('users')
         .returning('*') 
         .insert({
-          email: loginEmail[0],
+          email: loginEmail[0].email,
           name: name, 
           joined: new Date()
         })
