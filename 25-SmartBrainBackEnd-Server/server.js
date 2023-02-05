@@ -5,6 +5,7 @@ const cors = require('cors');
 
 // knexjs import and run
 const knex = require('knex');
+// modules
 const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
@@ -75,6 +76,7 @@ app.get('/profile/:id', (req, res) => {profile.handleProfileGet(req, res, db_pos
 
 // image
 app.put('/image', (req, res) => {image.handleImage(req, res, db_postgres)})
+app.put('/imageurl', (req, res) => {image.handleApiCall(req, res)})
 
 // listen
 app.listen(3000, () => {
