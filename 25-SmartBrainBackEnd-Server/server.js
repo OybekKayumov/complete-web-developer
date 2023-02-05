@@ -12,7 +12,7 @@ const db_postgres = knex({
     host : '127.0.0.1',
     port: 5432,   
     user : 'postgres',
-    password : 'postgres15',
+    password : '',
     database : 'smart-brain'
   }
 });
