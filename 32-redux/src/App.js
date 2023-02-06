@@ -1,17 +1,30 @@
 import React, { Component, useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import CardList from './components/CardList';
 import './App.css';
 import SearchBox from './components/SearchBox';
 import Scroll from './components/Scroll';
 import ErrorBoundry from './components/ErrorBoundry';
+import { setSearchField } from './actions';
 
+const mapStateToProps = state => {
+  return {
+    searchField: state.searchField
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSearchChange: (e) => dispatch(setSearchField(e.target.value))
+  }
+}
 
 class App extends Component{
   constructor() {
     super()
     this.state = {
       robots: [],
-      searchField: ''
+      // searchField: ''
     }
   }
 
@@ -27,14 +40,15 @@ class App extends Component{
       })
   }
 
-  onSearchChange= (e) => { // use arrow fn, no this keyword, no error
-    this.setState({ searchField: e.target.value})
-    
-  }
+  // onSearchChange= (e) => { // use arrow fn, no this keyword, no error
+  //   this.setState({ searchField: e.target.value})    
+  // }
 
   render () {
     // destructuring
-    const { robots, searchField} = this.state;
+    // const { robots, searchField} = this.state;
+    const { robots} = this.state;
+    const { searchField, onSearchChange } = this.props;
 
     const filteredRobot = robots.filter(robot => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase())
@@ -47,7 +61,7 @@ class App extends Component{
         return (
           <div className="App tc">
             <h1 className='f1'>RoboFriends</h1>
-            <SearchBox searchChange={this.onSearchChange} />
+            <SearchBox searchChange={onSearchChange} />
             <Scroll>
               <ErrorBoundry>
                 <CardList robots={filteredRobot} />
@@ -59,7 +73,8 @@ class App extends Component{
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+// connect is a higher order fn, which returns another fn
 
 
 /*
