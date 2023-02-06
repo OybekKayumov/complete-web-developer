@@ -19,6 +19,10 @@ function App () {
   //   console.log('1- constructor');
   // }
 
+  // states with initial state, array destructuring
+  const [robots, setRobots] = useState([]);
+  const [searchField, setSearchField] = useState('');
+
   // lifecycle
   // componentDidMount() {
   //   fetch('https://jsonplaceholder.typicode.com/users')
@@ -33,7 +37,7 @@ function App () {
   // }
 
   const onSearchChange = (e) => { // use arrow fn, no this keyword, no error
-    this.setState({ searchField: e.target.value})    
+    setSearchField(e.target.value)
   }
   
     // destructuring
