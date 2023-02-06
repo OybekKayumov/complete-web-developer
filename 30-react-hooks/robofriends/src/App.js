@@ -23,7 +23,9 @@ function App () {
   const [robots, setRobots] = useState([]);
   const [searchField, setSearchField] = useState('');
 
-  // lifecycle
+  // lifecycle hooks, useEffect
+
+
   // componentDidMount() {
   //   fetch('https://jsonplaceholder.typicode.com/users')
   //     .then(response => {
@@ -35,19 +37,25 @@ function App () {
   //   // this.setState({ robots: robots })
   //   console.log('2- componentDidMount');
   // }
+  //! side effect, and this will auto run every time with App function
+  useEffect(() => {  
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(users => {setRobots(users)})
+  }, [])  // second parameter, avoid rerendering 
+  // optional list, run if only changed
+  // [searchField] --> if searchField changes, run useEffect 
+  // [] 
 
   const onSearchChange = (e) => { // use arrow fn, no this keyword, no error
     setSearchField(e.target.value)
   }
-  
-    // destructuring
-    const { robots, searchField} = this.state;
 
     const filteredRobot = robots.filter(robot => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase())
     })
 
-    console.log('3- render');
+    console.log('3- render', robots, searchField);
 
     // loading
     // if (robots.length === 0) {
