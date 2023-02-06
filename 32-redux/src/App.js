@@ -5,21 +5,26 @@ import './App.css';
 import SearchBox from './components/SearchBox';
 import Scroll from './components/Scroll';
 import ErrorBoundry from './components/ErrorBoundry';
-import { setSearchField } from './actions';
+import { setSearchField, requestRobots } from './actions';
 
 const mapStateToProps = state => {
   return {
-    searchField: state.searchField
+    searchField: state.searchRobots.searchField,
+    robots: state.requestRobots.robots,
+    isPending: state.requestRobots.isPending,
+    error: state.requestRobots.error
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSearchChange: (e) => dispatch(setSearchField(e.target.value))
+    onSearchChange: (e) => dispatch(setSearchField(e.target.value)),
+    onRequestRobots: () =>   dispatch(requestRobots()) // same requestRobots(dispatch)
   }
 }
 
 class App extends Component{
+  /*
   constructor() {
     super()
     this.state = {
@@ -27,10 +32,11 @@ class App extends Component{
       // searchField: ''
     }
   }
+  */
 
   // lifecycle
   componentDidMount() {
-    // console.log(this.props.store.getState())
+    /*
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => {
         return response.json();
@@ -38,6 +44,8 @@ class App extends Component{
       .then(users => {
         this.setState({ robots: users})
       })
+    */
+    this.props.onRequestRobots()
   }
 
   // onSearchChange= (e) => { // use arrow fn, no this keyword, no error
@@ -47,15 +55,15 @@ class App extends Component{
   render () {
     // destructuring
     // const { robots, searchField} = this.state;
-    const { robots} = this.state;
-    const { searchField, onSearchChange } = this.props;
+    // const { robots} = this.state;
+    const { searchField, onSearchChange, robots, isPending } = this.props;
 
     const filteredRobot = robots.filter(robot => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase())
     })
 
     // loading
-    if (!robots.length) { // if (robots.length === 0) {
+    if (isPending) { // (!robots.length) { // if (robots.length === 0) {
       return <h1>Loading...</h1>
     } else {
         return (
